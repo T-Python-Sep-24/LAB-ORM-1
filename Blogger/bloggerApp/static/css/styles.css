@@ -91,7 +91,7 @@ header a img{
 }
 
 body {
-    background-color: #a0e0df;
+    background-color: #8d9f9f;
 }
 
 footer {
@@ -117,7 +117,7 @@ form {
     flex-direction: column;
     padding: 5rem;
     justify-content: center;
-    box-shadow: 6px 7px 2rem -1rem black;
+    box-shadow: 7px 7px 3rem -1rem black;
     border-radius: 25px;
     width: 50%;
     align-items: center;
@@ -168,7 +168,7 @@ form input, form textarea, form select{
 
     padding: 25px 3.8rem;
     border: 10px solid #ccc;
-    box-shadow: 5px 5px 4rem -2rem #ffba01;
+    box-shadow: 5px 6px 1rem 0rem black;
     position: relative;
     text-decoration: none;
 
@@ -202,8 +202,8 @@ form input, form textarea, form select{
 
 }
 .post-card a:hover {
-    box-shadow: 5px 5px 6rem -2rem #ad8e3a;
-    transition: .3s linear;
+    box-shadow: 5px 5px 1.5rem 0rem black;
+    transition: 0.1s linear;
 }
 
 
