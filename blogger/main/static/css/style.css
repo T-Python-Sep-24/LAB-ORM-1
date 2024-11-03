@@ -1,0 +1,104 @@
+html{
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+flex: 1;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex: 1;
+}
+
+.add_form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.add_form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.add_form input[type="text"],
+.add_form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+}
+
+.add_form button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}
+
+header nav a {
+    margin: 0 1em;
+    color: #fff;
+    text-decoration: none;
+}
+
+.main {
+    flex: 1;
+
+}
+
+.main-content {
+    padding: 2em;
+}
+
+.posts .post {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    
+    color: #fff;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+
+
+
