@@ -8,11 +8,11 @@ def create_post_view(request: HttpRequest) -> HttpResponse:
         new_post = Post(
             title=request.POST.get("title"),
             content=request.POST.get("content"),
-            is_published=True if request.POST.get("is_published") == "on" else False,  # Convert "on" to True
-            published_at=request.POST.get("published_at") or timezone.now(),  # Use current time if not provided
+            is_published=True if request.POST.get("is_published") == "on" else False,  
+            published_at=request.POST.get("published_at") or timezone.now(),  
         ) 
         new_post.save()
 
-        return redirect("main:index_view")  # Make sure "index" is the correct URL name for the home page
+        return redirect("main:index_view")  
 
     return render(request, "posts/create.html")

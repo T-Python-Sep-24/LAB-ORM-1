@@ -1,18 +1,14 @@
 {% extends "main/base.html" %}
 {% load static %}
-
 {% block title %}Home | Blogger{% endblock %}
-
 {% block content %}
 <div class="text-center my-4">
     <h2>Welcome to Blogger!</h2>
     <p>Your platform for sharing stories, ideas, and inspiration.</p>
 </div>
-
 <hr />
 <h2>Our Posts</h2>
 <div class="row mt-5 row-cols-1 row-cols-md-3 g-4">
-
     {% for post in posts %}
         <div class="col">
             <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">

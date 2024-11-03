@@ -1,23 +1,36 @@
 {% extends 'main/base.html' %}
-
-{% block title %}Create New Post{% endblock %}
-
+{% load static %}
 {% block content %}
-<h1>Create Post</h1>
-
-<div class="row">
-    <div class="col-6">
-        <form class="d-flex flex-column gap-2" action="{% url 'posts:create_post_view' %}" method="post">
-            {% csrf_token %}
-            <input type="text" placeholder="Title" name="title" class="form-control" required />
-            <textarea placeholder="Content" name="content" class="form-control" required></textarea>
-            <div class="form-check">
-                <input type="checkbox" name="is_published" id="is_published" class="form-check-input" checked>
-                <label for="is_published" class="form-check-label">Publish?</label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Create New Post{% endblock %}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 fade-in">Create Post</h1> 
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 slide-in-left">
+                <form class="d-flex flex-column gap-3" action="{% url 'posts:create_post_view' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Title" name="title" class="form-control" required />
+                    <textarea placeholder="Content" name="content" class="form-control" rows="4" required></textarea>
+                    <div class="form-check">
+                        <input type="checkbox" name="is_published" id="is_published" class="form-check-input" checked>
+                        <label for="is_published" class="form-check-label">Publish?</label>
+                    </div>
+                    <input type="date" name="published_at" class="form-control" required />
+                    <input type="submit" value="Create Post" class="btn btn-primary btn-block" />
+                </form>
             </div>
-            <input type="date" name="published_at" class="form-control" required />
-            <input type="submit" value="Create Post" class="btn btn-primary" />
-        </form>
-    </div>
-</div>
+            <div class="col-md-6 text-center mb-4 slide-in-right">
+                <img src="{% static 'images/blog.jpg' %}" alt="Create Blog" class="img-fluid rounded" style="max-height: 300px; width: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
 {% endblock %}

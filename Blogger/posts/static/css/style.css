@@ -1,0 +1,39 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Apply animations */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in-left {
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 1s ease-in-out;
+}
