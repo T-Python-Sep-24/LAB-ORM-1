@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<br>
+    <h2>Latest Posts</h2>
+    {% for post in posts %}
+        <article>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <p><small>Published on {{ post.published_at }}</small></p>
+        </article>
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="{% url 'homepage' %}" class="navbar-brand">Blogger</h1>
+                    <div class="navbar-nav">
+                        <a href="{% url 'homepage' %}">Home</a>
+                        <a href="{% url 'add_post' %}">Add Post</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="banner">
+                <div class="container">
+                    <h1 class="banner-title">
+                        <span>Add</span> Blogger
+                    </h1>
+                    <p>everything that you want to know about it</p>
+                    <form>
+                        <input type="text" class="search-input" placeholder="Search ...">
+                        <button type="submit" class="search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main>
+             {% block content %}{% endblock %}
+            </main>
+            <footer>
+                <div class="social-links">
+                    <a href=""><i class="fa fa-facebook-f"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-youtube-play"></i></a>
+                    <a href=""><i class="fa fa-instagram"></i></a>
+                </div>
+                <span>Blogger Page</span>
+            </footer>
+        </body>
+        </html>

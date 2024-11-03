@@ -1,0 +1,255 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    line-height: 1.4;
+    color: #3c393d;
+}
+.container{
+    max-width: 1320px;
+    margin: 0 auto ;
+    padding: 0 1.2rem;
+}
+header{
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)),url('../images/img2.png') center/cover no-repeat fixed;
+    display: flex;
+    flex-direction:stretch;
+    justify-content: stretch;
+}
+.navbar{
+    background:rgba(0,0,0,0.4);
+    padding: 20px;
+}
+.navbar-brand{
+    color: #fff;
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+.navbar-nav{
+    padding: 0.8rem 0 0.2rem 0;
+    text-align: center;
+}
+.navbar-nav a{
+    text-transform: uppercase;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.4rem 0.1rem;
+    letter-spacing: 3px ;
+    transition: opacity 0.5s ease;
+}
+.navbar-nav a:hover{
+    opacity: 0.7;
+}
+.banner{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.banner-title{
+    font-size: 3rem;
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+.banner-title span{
+    font-family: sans-serif;
+    color: #2b2b2b;
+}
+.banner p{
+    padding: 1rem 0 2rem 0;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-family: "Roboto";
+    font-weight: 300;
+    word-spacing: 2px;
+}
+.banner form{
+    background-color: #fff;
+    border-radius:2rem;
+    padding: 0.6rem 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.search-input{
+    font-family: "Roboto";
+    font-size: 1.1rem;
+    width: 100%;
+    outline: 0;
+    padding: 0.6rem 0;
+    border: none;
+}
+.search-input::placeholder{
+    text-transform: capitalize;
+}
+.search-btn{
+    width: 40px;
+    font-size: 1.1rem;
+    color: #000000;
+    border: none;
+    background: transparent;
+    outline: 0;
+    cursor: pointer;
+}
+footer{
+    background: #3c393d;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 0;
+ }
+.social-links{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+ }
+.social-links a{
+    border: 2px solid #fff;
+    color: #fff;
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:50px;
+    text-decoration: none;
+    margin: 0 0.3rem;
+    transition: all 0.5s ease;
+ }
+.social-links a:hover{
+    background: #fff;
+    color: #3c393d;
+ }
+.footer span{
+    margin-top: 1rem;
+    display: block;
+    font-family: sans-serif;
+    letter-spacing: 2px ;
+ }
+ @media screen and(min-width:540px){
+    .navbar-nav a{
+        padding-right: 1.2rem;
+        padding-left: 1.2rem;
+    }
+    .banner-title{
+        font-size: 5rem;
+    }
+    .banner form{
+        margin-top: 1.4rem;
+        width: 80%;
+        margin-left:auto;
+        margin-right: auto;
+    }
+ }
+ @media screen and(min-width:768px){
+    .navbar .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .search-input{
+        padding: 0.8rem 0;
+    }
+ }
+.post-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+.post-form p {
+    margin: 10px 0;
+}
+
+.post-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+.post-form input[type="text"],
+.post-form input[type="email"],
+.post-form textarea,
+.post-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 2px solid #625b47;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.post-form input[type="text"]:focus,
+.post-form input[type="email"]:focus,
+.post-form textarea:focus,
+.post-form select:focus {
+    border-color: #625b47;
+    outline: none;
+}
+
+.post-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.post-form button:hover {
+    background-color: #625b47;
+    transform: translateY(-2px);
+}
+
+.post-form button:active {
+    transform: translateY(0);
+}
+article {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+article h3 {
+    color: #625b47;
+    margin: 0 0 10px;
+}
+
+article p {
+    line-height: 1.6;
+    color: #555;
+}
+
+article small {
+    color: #888;
+}
