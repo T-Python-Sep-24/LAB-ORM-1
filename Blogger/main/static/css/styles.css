@@ -173,6 +173,7 @@ header {
 }
 
 .article-card {
+  max-height: fit-content;
   flex: 0 0 250px;
   background-color: #f2ebe0;
   border-radius: 10px;
@@ -205,6 +206,7 @@ header {
 .article-description {
   font-size: 14px;
   color: #504134;
+  text-align: justify;
 }
 
 /* Form Section */
@@ -304,10 +306,6 @@ footer {
 
 /* Animations */
 @keyframes fadeInText {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from {opacity: 0;}
+  to {opacity: 5;}
 }
