@@ -1,0 +1,39 @@
+{% extends 'main/base.html'%}
+{%load static%}
+
+{% block title %}<title>Blog | Home</title>{% endblock%}
+{% block content %} 
+    <div class="blog-intro">
+        <h1 class="rochester-regular">The Art Of Self Care</h1>
+        <h4 class="amatic-sc-regular">"IF YOU HAVE THE ABILITY TO LOVE, LOVE YOUR SELF FIRST"</h4>
+    </div>
+    <div class="choices-bar">
+        <a href="{%url 'posts:add_post_view'%}" class="rochester-regular">Add post</a>
+        <a href="" class="rochester-regular">Publish post</a>
+        <a href="" class="rochester-regular">Delete post</a>
+    </div>
+    <div class="welcoming-area">
+        <img src="{%static 'images/plant.jpg'%}"/>
+        <section class="welcoming-test">
+            <h1 class="rochester-regular">Hi, Welcome to selfcare</h1>
+            <p class="amatic-sc-regular">"Selfcare" refers to the practice of taking an active role in protecting one's own well-being and happiness, particularly during times of stress. It encompasses a wide range of activities and practices aimed at enhancing physical, mental, and emotional health.</p>
+        </section>
+    </div>
+    <h1 class="rochester-regular blog-head">Blogs</h1>
+    <div class="display-blogs">
+        {%for post in posts%}
+        <div class="card">
+            <img src="{%static 'images/blog-card.jpg'%}" />
+            <div class="card-body">
+                <h4 class="amatic-sc-regular">publisher</h4>
+                <h1 class="rochester-regular">{{post.title}}</h1>
+                <p>{{post.content}}</p>
+                <div class="card-footer">
+                    <p> date: {{post.published_at}}</p>
+                    <a href="" class="rochester-regular">Read</a>
+                </div>   
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+    {% endblock%}

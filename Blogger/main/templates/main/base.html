@@ -1,0 +1,45 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %} {% endblock%}
+    <link href="{%static 'css/base.css'%}" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&family=Rochester&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Phudu:wght@300..900&family=Rochester&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <script src="https://kit.fontawesome.com/c2e6ab3d91.js" crossorigin="anonymous"></script>
+
+    {% block title %}<title>Blog | Home</title>{% endblock%}
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <a href="{%url 'main:home_page_view'%}">Home</a>
+            <a href="">About</a>
+            <a href="">Blog</a>
+            <a href="">Contact</a>
+        </div>
+        <div class="side-navbar">
+            <span class="material-symbols-outlined">account_circle</span>
+            <a href=""> Sign In</a>
+        </div>
+    </nav>
+    {% block content %} 
+
+    {% endblock%}
+    <footer>
+        <h2>copyright 2024 . Areej Shareefi</h2>
+        <div class="social-media">
+            <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+        </div>
+    </footer>
+    {%block script%} 
+    {%endblock%}
+</body>
+</html>

@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.rochester-regular {
+    font-family: "Rochester", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+.amatic-sc-regular {
+    font-family: "Amatic SC", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body a:hover{
+    color: green;
+    transition: color 0.3s ease;
+}
+
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #f2f2f2;
+    padding: 1rem 3rem;
+  }
+
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .navbar a{
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+  }
+.side-navbar{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.side-navbar a{ 
+    text-decoration: none;
+    color: black;
+}
+  
+.blog-intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 1rem;
+    align-items: center;
+    padding: 3rem 4rem;
+}
+
+.blog-intro h1{
+    font-size: 5rem;
+    color: rgb(0, 85, 0);
+}
+.blog-intro h4{
+    font-size: 2rem;
+}
+
+.choices-bar{
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    justify-content: center;
+    border-bottom: black solid 2px;
+    border-top: black solid 2px;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+
+.choices-bar a{
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
+
+.welcoming-area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.welcoming-area img{
+    height: 80vh;
+    width: 120vh;
+}
+
+.welcoming-area section{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    text-align: center;
+    row-gap: 1rem;
+    padding: 10vh 2rem;
+    align-items: center;
+    height: 40vh;
+    width: 80vh;
+    background-color:rgba(255, 255, 255, 0.894);
+    position: absolute;
+}
+
+.welcoming-area section h1{
+    font-size: 2.5rem
+}
+.welcoming-area section p{
+    font-size: 1.5rem;
+}
+
+.blog-head{
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+}
+
+.display-blogs {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    gap: 1rem; 
+    padding: 1rem; 
+}
+
+.card {
+    background-color: #f0eceb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100%; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+    height: 50%; 
+    object-fit: cover; 
+}
+
+.card-body {
+    padding: 1rem;
+    flex-grow: 1; 
+}
+
+.card-body h1 {
+    font-size: 1.3rem;
+    margin: 0; 
+}
+
+.card-body p {
+    margin: 0.5rem 0 0 0; 
+    font-size: 0.8rem;
+}
+
+.card-body a {
+    text-decoration: none;
+    border: 2px solid black;
+    padding: 0.3rem 0.5rem;
+    color: black;
+    display: inline-block; 
+    margin-top: 0.5rem; 
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.card-body a:hover {
+    border: 2px solid green;
+    background-color: green;
+    color: #f0eceb;
+}
+
+.card-footer {
+    padding: 0.5rem; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer a, .card-footer p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color:#f2f2f2 ;
+    padding: 0rem 3rem;
+    bottom: 0px;
+}
+footer h2{
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.social-media{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.social-media a i{
+    font-size: 1.5rem;
+}
