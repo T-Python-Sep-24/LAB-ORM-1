@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>index pass</h1>
-</body>
-</html>
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Home | Blogger{% endblock %}
+
+{% block content %}
+<div class="text-center my-4">
+    <h2>Welcome to Blogger!</h2>
+    <p>Your platform for sharing stories, ideas, and inspiration.</p>
+</div>
+
+<hr />
+<h2>Our Posts</h2>
+<div class="row mt-5 row-cols-1 row-cols-md-3 g-4">
+
+    {% for post in posts %}
+        <div class="col">
+            <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content }}</p>
+                <h5>Published: {{ post.is_published }}</h5>
+                <h6>{{ post.published_at }}</h6>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
