@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} New Post {% endblock %}
+
+    {% block additional_styles %}
+    <style>
+
+    </style>
+    {% endblock %}
+{% block content %}
+    <main>
+        <div class="form-container">
+            <h1 class="form-title">Create New Post </h1>
+            <form action="{% url 'bloggerApp:create_post_view' %}" method="post">
+                {% csrf_token %}
+                <input class="post-title" type="text" name="title" placeholder="Post Title" required>
+                <textarea class="post-content" name="content" placeholder="Enter Post description" required></textarea>
+                <input class="add-btn create-post" type="submit" value="Create Post">
+            </form>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Blogger {% endblock %}
+{% block additional_styles %}
+<style>
+
+</style>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="posts-container">
+    {% for blog in blogs %}
+        {% if blog.is_published == True %}
+            <div class="post-card">
+            <a href="/">
+
+                <h3 class="post-title">{{blog.title}}</h3>
+                <hr class="hr">
+                <p class="post-content">{{blog.content}}</p>
+                <h3 class="post-publish-date">{{blog.published_at}}</h3>
+
+            </a>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    </div>
+</main>
+{% endblock %}

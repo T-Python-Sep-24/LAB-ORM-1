@@ -1,0 +1,237 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Gamja Flower";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+
+}
+header{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+}
+header a img{
+    width: 27%;
+    position: relative;
+    left: 0px;
+
+}
+.navbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.6rem;
+}
+
+.navbar-right a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    padding: 1.6rem;
+}
+.link-btn {
+    padding: 0 1rem;
+    margin: 0 5px;
+    border: 2px solid #a0e0df;
+    border-radius: 25px;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    color: black;
+    background-color: #ffba01;
+}
+.add-btn {
+    padding: 0.4rem 0.4rem;
+    margin: 0 5px;
+    border: 2px solid #ffba01;
+    border-radius: 25px;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    color: #ffba01;
+    background-color: black;
+    z-index: 1;
+
+}
+
+.logo-btn {
+    padding: 0.4rem 0.4rem;
+    margin: 0 5px;
+    border: 2px solid #ffba01;
+    border-radius: 50%;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    color: #ffba01;
+    background-color: black;
+}
+
+.add-btn:hover, .logo-btn:hover, .link-btn:hover{
+
+    border: 2px solid #a0e0df;
+    background-color:white;
+    color: black;
+    transition: .3s linear;
+}
+
+body {
+    background-color: #a0e0df;
+}
+
+footer {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+
+/* main content styles */
+main {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+form {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+    justify-content: center;
+    box-shadow: 6px 7px 2rem -1rem black;
+    border-radius: 25px;
+    width: 50%;
+    align-items: center;
+}
+.form-title{
+    padding-top: 3rem;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.form-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+form input, form textarea, form select{
+    padding: 0.6rem;
+    margin: 8px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+.create-post {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.post-card a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffffbf;
+    color: black;
+    border-radius: 1rem;
+    width: 18rem;
+    height: auto;
+    margin: 2rem 3rem;
+
+    padding: 25px 3.8rem;
+    border: 10px solid #ccc;
+    box-shadow: 5px 5px 4rem -2rem #ffba01;
+    position: relative;
+    text-decoration: none;
+
+
+}
+.post-card .post-title {
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+
+}
+.post-card .post-content {
+    font-size: 1.5rem;
+    height: 100%;
+
+}
+.hr{
+    color: black;
+    width: 130%;
+    padding: 0;
+    margin: 0;
+}
+.post-card .post-publish-date {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    font-size: 1rem;
+    color: #565699;
+
+
+}
+.post-card a:hover {
+    box-shadow: 5px 5px 6rem -2rem #ad8e3a;
+    transition: .3s linear;
+}
+
+
+/* response to page size */
+@media(max-width:900px){
+    header {
+        flex-direction: column;
+    }
+    form input, form textarea, form select{
+        padding: 0.6rem;
+        margin: 9px;
+
+        font-size: 20px;
+    }
+}
+@media(max-width:768px){
+    form input, form textarea, form select{
+        padding: 0.5rem;
+        margin: 8px;
+
+        font-size: 20px;
+    }
+}
+@media(max-width:450px){
+    form input, form textarea, form select{
+        padding: 0.3rem;
+        margin: 7px;
+
+        font-size: 15px;
+    }
+}
