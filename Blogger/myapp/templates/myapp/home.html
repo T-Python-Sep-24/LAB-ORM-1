@@ -1,0 +1,29 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+    <!-- Link to view the latest posts -->
+    <p><a href="{% url 'myapp:display' %}">View Latest Posts</a></p>
+
+    <!-- Form for adding new posts -->
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div>
+            <label for="content">Content:</label>
+            <textarea name="cyontent" id="content" required></textarea>
+        </div>
+        <div>
+            <label for="is_published">Publish:</label>
+            <input type="checkbox" name="is_published" id="is_published">
+        </div>
+        <div>
+            <label for="published_at">Publish Date:</label>
+            <input type="datetime-local" name="published_at" id="published_at" value="{{ current_time }}">
+        </div>
+        <button type="submit">Add Post</button>
+    </form>
+{% endblock %}
