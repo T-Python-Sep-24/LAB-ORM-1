@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block title %}Home - My Blog{% endblock %}
+
+{% block content %}
+<section class="posts">
+    <article class="post">
+        <h2>First Blog Post</h2>
+        {% for b in blog %}
+            {{b.title}}
+            {{b.contant}}
+            {{b.is_published}}
+            {{b.published_at}}
+        {% endfor %}
+    </article>
+   
+
+</section>
+{% endblock %}

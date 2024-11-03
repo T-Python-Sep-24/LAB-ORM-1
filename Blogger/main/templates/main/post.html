@@ -1,0 +1,35 @@
+
+{% extends "main/base.html" %}
+
+{% block title %}Add New Post - My Blog{% endblock %}
+
+{% block content %}
+<dev class="row">
+    <dev class="col-4">
+        
+
+
+        <form class="new-post-form" action="{% url 'main:home_view' %}">
+            <h1 class="text-center  fade-in">Create Post</h1> 
+            <input type="text" placeholder="Title" name="title" class="form-control">
+            
+            <textarea name="contant" class="form-control"></textarea>
+            
+            <input type="checkbox" name="is_published" id="is_published" class="form-check-input" checked>
+            <label for="is_published" class="form-check-label">Publish?</label>
+            <input type="date" name="published_at" class="form-control" required />
+                    <input type="submit" value="Create Post" class="btn btn-primary btn-block" />
+
+        </form>
+
+
+
+
+
+    </dev>
+
+
+
+
+</dev>
+{% endblock %}
