@@ -1,2 +1,57 @@
 {% extends 'main/base.html' %}
 {% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<header class="mb-5 rounded-bottom-5 shadow">
+    <div class="overlay"></div>
+    <video class="w-100 opacity-50" src="/static/videos/blogvd.mp4" muted autoplay loop></video>
+    <div class="container">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-dark f-ubuntu">
+                <h1
+                    class="display-3 fw-bolder lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}">
+                    Welcome to Blogger</h1>
+                <p
+                    class="lead mb-0 fw-bold lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}">
+                    A place to share your thoughts</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div
+    class="container-lg text-start lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
+    <h1 class="f-ubuntu">Blog: </h1>
+    <div class="row row-cols-1 justify-content-start">
+        {% for post in posts %}
+        <div class="col-12 my-4">
+            <div
+                class="card rounded-5 shadow p-4 text-bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
+                <div class="card-body f-ubuntu">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text lead">{{post.content}}</p>
+                    <p class="card-text small">{{post.publishedAt}}</p>
+                    <div class="d-flex flex-row-reverse px-3">
+                        <a href="#" class="row btn shadow rounded-pill bg-black text-white">More</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+<div class="fixed-bottom d-flex flex-row-reverse p-4">
+    <a href="{% url 'post:newPostView' %}">
+        <p class="material-symbols-outlined rounded-pill shadow p-2 writeicon">history_edu</p>
+    </a>
+</div>
+
+{% endblock %}

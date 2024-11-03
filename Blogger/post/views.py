@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 from post.models import Post
+from django.shortcuts import resolve_url
+
 
 #Post page
 def newPostView(request: HttpRequest):
     #Create a new post with user input
+    response = render(request, 'post/post.html')
     if request.method == "POST":
-        post = Post(title=request.POST["title"], content=request.POST["content"], isPublished=request.POST["isPublished"], publishedAt=request.POST["publishedAt"])
+        post = Post(title=request.POST["title"], content=request.POST["content"])
         post.save()
+        response = redirect('main:mainView')
 
-    return render(request, 'post/post.html')
+    return response

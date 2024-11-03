@@ -1,2 +1,33 @@
 {% extends 'main/base.html' %}
 {% load static %}
+
+{% block title %}Post{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="f-ubuntu mt-5 mb-4 pt-5 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">New Post: </h1>
+    <div class="row row-cols-1 row-cols-md-2 justify-content-center">
+        <div class="col shadow rounded-5 py-3 px-4 bg-white">
+            <form class="form-floating d-flex flex-column gap-2 mt-3 px-2" action="{% url 'post:newPostView' %}"
+                method="post">
+                {% csrf_token %}
+                <span class="material-symbols-outlined rounded-pill p-2 writeicon">
+                    history_edu
+                </span>
+                <div class="form-floating">
+                    <input type="text" class="form-control f-ubuntu" placeholder="Title.." name="title"
+                        id="floatingTitle">
+                    <label for="floatingTitle" class="f-ubuntu">Title</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control f-ubuntu" placeholder="Whats on you mind?.." name="content"
+                        id="floatingContent" style="height: 100px"></textarea>
+                    <label for="floatingContent" class="f-ubuntu">Comments</label>
+                </div>
+
+                <button class="btn btn-outline-secondary border-2" type="submit">Publish</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

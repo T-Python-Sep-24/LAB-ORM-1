@@ -17,20 +17,60 @@
     <title>{% block title %} {% endblock %} </title>
 </head>
 
-<body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
-                Bootstrap
+<body class="lightbody {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darkbody {% endif %}">
+    <!-- This navbar expands at medium screens, screens smaller than that toggle the collapse property -->
+    <nav class="navbar navbar-expand-md py-2 fixed-top shadow rounded-bottom-3 bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
+        <div class="container d-flex flex-row justify-content-evenly">
+            <!-- Brand name -->
+            <a class="navbar-brand f-ubuntu gap-1 d-inline-flex lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}" href="/">
+                <span class="material-symbols-outlined lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}">library_books</span>
+                <p class="lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}">Blogger</p>
             </a>
+            <!-- Toggle button to display navbar on small screens -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapseItems"
+                aria-controls="navbarCollapseItems" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav bar components -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapseItems">
+                <a class="navbar-brand f-phudu" href="/"></a>
+
+                <!-- Middle nav -->
+                <ul class="gap-4 p-3 f-ubuntu navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="linkHover lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}" href="/">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="linkHover lighttext {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktext {% endif %}" href="{% url 'post:newPostView' %}">New Post</a>
+                    </li>
+                </ul>
+                <!-- End Nav -->
+                <div class="f-ubuntu d-flex align-items-center justify-content-center gap-1">
+                    <a href="{% url 'main:modeView' 'light' %}?next={{request.path}}" ><span
+                        class="material-symbols-outlined rounded-pill p-1 logohover {% if 'mode' not in request.COOKIES or 'mode' in request.COOKIES and request.COOKIES.mode != 'dark' %} activeiconlight {% else %} darktext {% endif %}">light_mode</span></a>
+                <a href="{% url 'main:modeView' 'dark' %}?next={{request.path}}"><span
+                        class="material-symbols-outlined rounded-pill p-1 logohover {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} activeicondark {% else %} lighttext {% endif %}">dark_mode</span></a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    {% block content %}
+    <main>
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        {% block footer %}
+
+        {% endblock %}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 </body>
 
