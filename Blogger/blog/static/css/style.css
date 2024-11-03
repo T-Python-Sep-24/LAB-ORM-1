@@ -1,0 +1,28 @@
+body {
+    margin: 50px;
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: rgba(223, 239, 243, 0.589);
+}
+
+header {
+
+    background-color: #c5d9ee;
+    padding: 10px;
+    text-align: center;
+    margin-right: 30px;
+    box-shadow: 10px 10px 10px #0f0f0f49;
+}
+
+.nav_hp{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    border: 1px solid #3205fc;
+    padding: 10px;
+    margin: 10px 0;
+}
