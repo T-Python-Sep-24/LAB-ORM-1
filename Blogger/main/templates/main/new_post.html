@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}New Post{%endblock %}
+
+{% block content %}
+
+
+<!-- New Post Form -->
+<div class="form-section">
+  <h2>New Post</h2>
+  <form>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" class="form-input" />
+    <label for="main-photo">Main Photo:</label>
+    <div class="file-upload">
+      <input type="file" id="main-photo" name="main-photo" class="file-input" />
+      <span class="material-symbols-outlined upload-icon">upload</span>
+    </div>
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" class="form-textarea"></textarea>
+
+    <button type="submit" class="submit-button">Publish</button>
+  </form>
+</div>
+
+{% endblock %}

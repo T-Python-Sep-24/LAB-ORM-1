@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{%endblock %}
+
+{% block content %}
+
+<!-- Main Content -->
+<div class="welcome-section">
+    <div class="welcome-text">
+      <h1 class="animated-text">Welcome</h1>
+      <p class="subtext"> To My Blog</p>
+    </div>
+    <div class="welcome-image-container"></div>
+    <div class="circle-background"></div>
+    <img src="{% static 'images/pic.png' %}" alt="Illustration" class="welcome-image">
+</div>
+</div>
+</div>
+
+  <!-- Article Grid -->
+   <section class="article-section">
+    <h2>Last Articles</h2>
+    <div class="article-grid">
+        
+        <div class="article-card">
+            <img src="{% static 'images/k.png' %}" alt="Article Image" class="article-image">
+            <p class="article-date">Date</p>
+            <h3 class="article-title">Title</h3>
+            <p class="article-description">Content description goes here...</p>
+          </div>
+
+          <div class="article-card">
+            <img src="{% static 'images/k.png' %}" alt="Article Image" class="article-image">
+            <p class="article-date">Date</p>
+            <h3 class="article-title">Title</h3>
+            <p class="article-description">Content description goes here...</p>
+          </div>
+
+    
+</div>
+</section>
+</main>
+
+{% endblock %}
