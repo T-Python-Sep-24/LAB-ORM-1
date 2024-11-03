@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <h2>Add New Post</h2>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+
+        <div>
+            {{ form.title.label }}  <!-- Explicitly render the label -->
+            {{ form.title }}  <!-- Render the title field -->
+        </div>
+
+        <div>
+            {{ form.content.label }}  <!-- Explicitly render the label -->
+            {{ form.content }}  <!-- Render the content field -->
+        </div>
+
+        <button type="submit" class="btn">Add Post</button>
+    </form>
+{% endblock %}

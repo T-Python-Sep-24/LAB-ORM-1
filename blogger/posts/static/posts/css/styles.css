@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.container {
+    flex: 1; /* Allow the container to grow and fill available space */
+    max-width: 1200px; /* Maximum width of the container */
+    /* Center the container */
+    padding: 20px;
+     /* Padding inside the container */
+}
+header {
+ background: #333;
+    padding: 15px 20px; /* Padding for header */
+}
+
+.header-content {
+    display: flex; /* Use Flexbox for layout */
+    justify-content: space-between; /* Space between the items */
+    align-items: center; /* Center items vertically */
+}
+
+nav {
+    background: #007bff; /* Background color for the nav bar */
+    border: 1px solid #0056b3; /* Border for the nav bar */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Make the nav bar take only the required width */
+}
+
+nav ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+nav a {
+    color: white; /* Text color */
+    margin: 0 10px; /* Spacing between links */
+    text-decoration: none; /* Remove underline from links */
+    transition: color 0.3s; /* Smooth color transition on hover */
+}
+
+nav a:hover {
+    color: #ffc107; /* Change color on hover */
+}
+
+
+article {
+    border: 1px solid #ddd; /* Border around article */
+    margin: 10px 0; /* Space above and below articles */
+    padding: 15px; /* Padding inside articles */
+    background: white; /* Article background color */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+article h3 {
+    margin: 0 0 10px; /* Space below article title */
+}
+
+article p {
+    line-height: 1.6; /* Improved readability */
+}
+
+footer {
+    text-align: center; /* Center align footer text */
+    padding: 10px 0; /* Padding inside footer */
+    background: #333; /* Footer background color */
+    color: white; /* Footer text color */
+}
+
+.left-aligned {
+    margin-left: 0; /* Align to the left */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+        align-items: center; /* Center nav items */
+    }
+
+    nav a {
+        margin-bottom: 10px; /* Space below nav items */
+    }
+
+    article {
+        margin: 5px 0; /* Reduced margin for articles */
+        padding: 10px; /* Reduced padding for articles */
+    }
+}
+.blogger-title {
+    color: white; /* Change text color to white */
+}
