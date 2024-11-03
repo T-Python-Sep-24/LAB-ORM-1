@@ -1,6 +1,7 @@
 html, body {
     height: 100%; 
     margin: 0;
+    font-family: "New Amsterdam", sans-serif;
 }
 
 body {
@@ -33,8 +34,8 @@ header {
 }
 
 nav ul {
-    list-style-type: none;
     padding: 0;
+    font-size: 25px;
 }
 
 nav ul li {
@@ -44,20 +45,15 @@ nav ul li {
 
 .header-image {
     position: relative;
-    margin-top: -90px;
+    height: 150px;
 }
 
 .header-image img {
-    width: 250px; 
-    height: 250px; 
+    width: 90%;
+    height: 180%; 
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.header-image span {
-    display: inline-block;
-    margin-top: 20px; 
 }
 
 footer {
@@ -70,3 +66,22 @@ footer {
 .container {
     margin-top: 40px; 
 }
+.note-card {
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.2s;
+}
+
+.note-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.card-text {
+    
+    flex-grow: 1; 
+}
+
