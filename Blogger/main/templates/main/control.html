@@ -1,0 +1,29 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main:home_view' %}">Home</a></li>
+            <li><a href="{% url 'main:new_post_view' %}">Add New Post</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome to Blogger</h1>
+    </header>
+    <div class="container">
+        {% block content %}
+        
+        {% endblock %}
+    </div>
+    <footer>
+        <p>&copy; 2024 Blogger. All rights reserved.</p>
+    </footer>
+</body>
+</html>

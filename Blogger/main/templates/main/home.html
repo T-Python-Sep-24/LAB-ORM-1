@@ -1,0 +1,14 @@
+{% extends 'main/control.html' %}
+
+{% block content %}
+<h1>Latest Posts</h1>
+{% for blog in bolgs %}
+    <div class="post">
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.content }}</p>
+        <h6>Published:{{blog.published_at }}</h6>
+    </div>
+
+{% endfor %}
+<p>No posts available.</p>
+{% endblock %}  
