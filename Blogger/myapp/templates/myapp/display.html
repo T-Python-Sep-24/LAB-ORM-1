@@ -7,9 +7,12 @@
         <div class="posts-container">
             {% for post in posts %}
             <div class="post-card">
-                <h2>{{ post.title }}</h2>
+                <img src="{{post.poster.url}}" style="width: 300px"> <!--poster is the ImageField name -->
+                <a href="{% url 'myapp:details_view' post.id %}"><h2>{{ post.title }}</h2></a>
+                <p><strong>ID:</strong> {{ post.id }}</p>
                 <p class="post-content">{{ post.content }}</p>
                 <p class="post-meta"><strong>Published on:</strong> {{ post.published_at|date:"Y-m-d H:i" }}</p>
+
             </div>
             {% endfor %}
         </div>
