@@ -2,19 +2,34 @@
 {% load static %}
 {% block content %}
 {% block title %} Update Post | Blogger{% endblock %}
-        <h1 class="text-center mb-4 fade-in">Create Post</h1> 
+        <h1 class="text-center mb-4 fade-in">Update {{post.title}}</h1> 
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 slide-in-left">
-                <form class="d-flex flex-column gap-3" action="{% url 'posts:create_post_view' %}" method="post" enctype="multipart/form-data">
+                <form class="d-flex flex-column gap-3" action="{% url 'posts:post_update_view' post.id %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input type="text" placeholder="Title" name="title" class="form-control" value="{{post.title}}" required />
-                    <textarea placeholder="Content" name="content" class="form-control" value="{{post.content}} rows="4" required></textarea>
-                    <input type="file" name="poster" class="form-control" value="{{post.poster}}"/>
+                    <textarea placeholder="Content" name="content" class="form-control" rows="4"  required>{{post.content}}</textarea>
+                    <!-- Category Dropdown Field -->
+            <select name="category" class="form-control" required>
+                <option value="tech" {% if post.category == 'tech' %}selected{% endif %}>Technology</option>
+                <option value="life" {% if post.category == 'life' %}selected{% endif %}>Lifestyle</option>
+                <option value="edu" {% if post.category == 'edu' %}selected{% endif %}>Education</option>
+                <option value="news" {% if post.category == 'news' %}selected{% endif %}>News</option>
+                <option value="sports" {% if post.category == 'sports' %}selected{% endif %}>Sports</option>
+            </select>
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{post.poster.url}}" class="w-50" />
+                </div>
+                <div class="col">
+                    <input type="file" name="poster" class="form-control"/>
+                </div>
+            </div>
                     <div class="form-check">
                         <input type="checkbox" name="is_published" id="is_published" class="form-check-input" value="{{post.is_published.isoformat}}" checked>
                         <label for="is_published" class="form-check-label">Publish?</label>
                     </div>
-                    <input type="submit" value="Create Post" class="btn btn-primary btn-block" />
+                    <input type="submit" value="Update Post" class="btn btn-primary btn-block" />
                 </form>
             </div>
             <div class="col-md-6 text-center mb-4 slide-in-right">
