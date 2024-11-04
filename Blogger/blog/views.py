@@ -18,5 +18,10 @@ def create_blog_view(request:HttpRequest):
         new_blog.save()
     
     return render(request, "blog/create.html")
+
+def blog_view(request: HttpRequest, blog_id):
+    blog = Blog.objects.get(pk=blog_id)
+    
+    return render(request, "main/blog.html", {"blog": blog})
      
 
