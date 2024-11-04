@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/166a19ca-b423-4016-b3e4-d43804521622)
+![image](https://github.com/user-attachments/assets/e6cdc15c-e2c1-4107-b05a-b48c0b433681)
 
 # LAB-ORM-1
 
