@@ -8,7 +8,8 @@ def create_post_view(request: HttpRequest) -> HttpResponse:
         new_post = Post(
             title=request.POST.get("title"),
             content=request.POST.get("content"),
-            is_published=True if request.POST.get("is_published") == "on" else False,   
+            is_published=True if request.POST.get("is_published") == "on" else False,
+            poster=request.FILES["poster"], 
         ) 
         new_post.save()
 
