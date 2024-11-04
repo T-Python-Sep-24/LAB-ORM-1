@@ -7,14 +7,25 @@
 <div class="wrapper">
     <div class="main_blog_page">
         <img src="{{blog.poster.url}}" style="width: 100%; margin-top:1rem; border-radius: 10px;"/>
-        <a href="" class="phudu">Update</a>
+        
         <h3 class="phudu">{{blog.title}}</h3>
+
+        <h4 class="phudu">Category: {{ blog.category }}</h4>
+
         {% if blog.is_published %}
-            <p>{{blog.content}}</p>
-            <h5>Published at {{ blog.published_at }}</h5>
+        <p>{{blog.content}}</p>
+        <h5>Published at {{ blog.published_at }}</h5>
         {% else %}
-            <h5>Not published yet.</h5>
+        <h5>Not published yet.</h5>
         {%endif %}
+
+        <a href="{% url 'blog:update_blog_view' blog.id %}" class="phudu publish" style="margin-top: 1rem; text-decoration: none; width: 90px; padding-left: 20px;">
+            Update
+        </a>
+    
+        <a href="{% url 'blog:delete_blog_view' blog.id %}" class="phudu publish" style="margin-top: 1rem; text-decoration: none; width: 86px; padding-left: 25px; background-color: brown;">
+            Delete
+        </a>
     </div>
 </div>
 

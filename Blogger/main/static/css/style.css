@@ -139,7 +139,6 @@ footer {
     border-width: 0cap;
 }
 
-
 .main_blogs {
     display: flex;
     flex-direction: column;
@@ -206,17 +205,8 @@ footer {
     margin-bottom: 1.5rem;
 }
 
-.main_blog_page a {
-    text-decoration: none;
-    color:bisque;
-    background-color: rgb(19, 163, 171);
-    font-size: 20px;
-    border-width: 0cap;
-    margin-top: 1rem;
-}
-
 .main_blog_page img {
-    height: 500px;
+    height: 400px;
 }
 
 .main_blog_page h3, .main_blog_page h5, .main_blog_page p {
@@ -229,10 +219,4 @@ footer {
 
 .main_blog_page p {
     color: rgb(19, 163, 171);
-}
-
-@media (max-width: 800px) {
-    .main_blog_page {
-        width: 90%; 
-    }
 }

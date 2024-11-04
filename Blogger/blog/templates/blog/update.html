@@ -5,31 +5,48 @@
 {% block content %}
 
 <div class="create_main">
-    <h1 class="phudu">Update Your Blog Here</h1>
+    <h1 class="phudu">Update {{blog.title}} blog</h1>
 
-    <form class="update_blog" action="{% url 'blog:update_blog_view' blog.id %}" method="post" enctype="multipart/form-data">
+    <form style="gap: 2rem; margin-bottom:1.5rem;" class="create_info update_blog" action="{% url 'blog:update_blog_view' blog.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
         <div>
             <h3>Your Blog Title:</h3>
-            <input type="text" name="title" class="title_box"/>
+            <input type="text" name="title" class="title_box" value="{{blog.title}}"/>
         </div>
     
         <div>
-            <h3>Write Your Blog:</h3>
-            <textarea name="content" class="blog_box"></textarea>
+            <h3 style="margin-right: 10px;">Your Last Blog:</h3>
+            <textarea name="content" class="blog_box">{{blog.content}}</textarea>
         </div>
 
         <div>
-            <h3>Upload A Poster If You Want</h3>
+            <h3 style="margin-top: 3rem;">Upload a another Poster if you want</h3>
             <input type="file" name="poster"/>
         </div>
+        <img src="{{blog.poster.url}}" style="height: 300px; width: 100%; margin-top:1rem; border-radius: 20px;"/>
 
         <div>
-            <h3>Do You Want To Publish It Now?</h3>
+            <h3>Select Category:</h3>
+            <select name="category">
+                <option value="Tech" {% if blog.category == 'Tech' %}selected{% endif %}>Technology</option>
+                <option value="Life" {% if blog.category == 'Life' %}selected{% endif %}>Lifestyle</option>
+                <option value="Travel" {% if blog.category == 'Travel' %}selected{% endif %}>Travel</option>
+                <option value="Food" {% if blog.category == 'Food' %}selected{% endif %}>Food</option>
+                <option value="Edu" {% if blog.category == 'Edu' %}selected{% endif %}>Education</option>
+            </select>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h3>Do You want to Re Publish it Now?</h3>
             YES
-            <input type="radio" name="is_published" value="published"/>
+            <input type="radio" name="ispublished" value="published"/>
             NO
-            <input type="radio" name="is_published" value="not_published"/>
+            <input type="radio" name="ispublished" value="not_published"/>
+            {% if blog.is_published %}
+                <h5>Last published at {{ blog.published_at }}</h5>
+            {% else %}
+                <h5>Not published yet.</h5>
+            {%endif %}
         </div>
 
         <input type="submit" value="Submit" class="phudu publish"/>
