@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Latest Released Blogs {% endblock %}
+
+{% block content %}
+
+<div class="main_blogs">
+    <h1 class="phudu">the Latest Released Blogs</h1>
+    <div class="blogs">
+        {% for b in blog %}
+            <div class="blog_report">
+                <h3 class="phudu">{{b.title}}</h3>
+                <p>{{b.content}}</p>
+                <h5>Published at {{ b.published_at }}</h5>
+            </div>
+            {% empty %}
+                <p>No blog posts available.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

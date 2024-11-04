@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Create New Blog {% endblock %}
+
+{% block content %}
+
+<div class="create_main">
+    <h1 class="phudu">create new Blog !</h1>
+
+    <form class="create_info" action="{% url 'blog:create_blog_view' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <h3>Your Blog Title:</h3>
+            <input type="text" name="title" class="title_box"/>
+        </div>
+    
+        <div>
+            <h3>Write Your Blog:</h3>
+            <textarea name="content" class="blog_box"></textarea>
+        </div>
+
+        <div>
+            <h3>Do You Want To Publish It Now?</h3>
+            YES
+            <input type="radio" name="is_published" value="published"/>
+            NO
+            <input type="radio" name="is_published" value="not_published"/>
+        </div>
+
+        <input type="submit" value="Submit" class="phudu publish"/>
+    </form>
+</div>
+
+{% endblock %}
