@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div class="d-flex flex-column gap-2">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>{{ post.title }}</h1>
+                <h5 class="mb-3">{{ post.published_at|date:"F j, Y" }}</h5>
+            </div>
+            <img src="{{ post.poster.url }}" class="img-fluid" alt="Post image" style="max-width: 100%; max-height: 300px;" />
+            <p class="mt-3">{{ post.content }}</p>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <a href="{% url 'main:update_post' post.id %}" class="btn btn-primary">Edit</a>
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Post</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete "{{ post.title }}"?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a href="{% url 'main:delete_post' post.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

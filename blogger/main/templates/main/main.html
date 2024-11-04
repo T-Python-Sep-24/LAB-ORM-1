@@ -5,8 +5,9 @@
 <h2>Latest Posts</h2>
 <div class="posts">
     {% for post in posts %}
-        <div class="post">
-            <h3>{{ post.title }}</h3>
+    <div class="post">
+        <a href="{% url 'main:blog_detail' post.id %}"> <h3>{{ post.title }}</h3></a>
+            <img src="{{ post.poster.url }}"  style="width: 300px; height: auto; "/>
             <p>{{ post.content|truncatewords:30 }}</p>
             <small>Published on: {{ post.published_at|date:"F j, Y, g:i a" }}</small>
         </div>
