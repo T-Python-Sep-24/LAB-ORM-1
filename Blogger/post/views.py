@@ -9,7 +9,7 @@ def newPostView(request: HttpRequest):
     #Create a new post with user input
     response = render(request, 'post/post.html')
     if request.method == "POST":
-        post = Post(title=request.POST["title"], content=request.POST["content"])
+        post = Post(title=request.POST["title"], content=request.POST["content"], picture=request.FILES["picture"])
         post.save()
         response = redirect('main:mainView')
 

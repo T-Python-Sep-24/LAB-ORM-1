@@ -16,6 +16,10 @@
     background-image: linear-gradient(to bottom right, rgb(51, 49, 55), rgb(94, 81, 124));
 }
 
+.opacity-90 {
+    opacity: 0.9;
+}
+
 header {
     position: relative;
     height: 75vh;
