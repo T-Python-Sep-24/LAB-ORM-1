@@ -1,35 +1,54 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
+
 {% block title %}Home{% endblock %}
 
 
 {% block content %}
-<div class="container">
-    <h1 class="pt-5">Latest Posts</h1>
-</div>
+ <section> <!-- start of hero section -->
+     <div class="myhero-background-decoration width-100">
+         <div class="myhero-parent container-fluid d-flex">
+             <div class="myhero-content-container container col-md-5 d-flex flex-column justify-content-around">
+                 <h1>Blogger Where Ideas Meet</h1>
+                 <p>Explore blogger community ideas and share your own ideas with more than 10,000 community members</p>
+                 <div>
+                     <p><strong>You have something in your mind? Add your new post now!</strong></p>
+                     <a href="{% url 'main:add_view' %}" class="btn col-lg-5 my-2 btn-primary rounded-3 p-2">Add a new post</a>
 
-<div class="container">
-    <div class="row">
-            {% for post in posts %}
-            <div class="col-sm-6 mb-3 mb-sm-0 py-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ post.title }}</h5>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.published_at }}</h6>
-                      <p class="card-text">{{ post.content }}</p>
-                      <h6 class="card-subtitle mb-2 text-body-secondary">
-                        {% if post.is_published %}
-                            the post is published
-                        {% else %}
-                            the post is not published
-                        {% endif %}
-                      </h6>
-                    </div>
-                </div>  
-            </div>
-            {% endfor %}
-        </div>
-    </div>
+                 </div>
+             </div> <!-- myhero-content-container -->
+             <div class="myhero-background-container flex-grow-1 m-0 p-0 width-100"></div>
+         </div> <!-- end of myhero-parent-->
+     </div>
+ </section> <!-- end of hero section -->
 
-
+ <section> <!-- start of latest posts section -->
+     <div class="container">
+         <h1 class="pt-5">Latest Posts</h1>
+     </div>
+     
+     <div class="container">
+         <div class="row">
+                 {% for post in posts %}
+                 <div class="col-sm-4 mb-3 py-2">
+                     <div class="card w-100" style="width: 18rem;">
+                         <div class="card-body">
+                           <h5 class="card-title">{{ post.title }}</h5>
+                           <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.published_at }}</h6>
+                           <p class="card-text">{{ post.content }}</p>
+                           <h6 class="card-subtitle mb-2 text-body-secondary">
+                             {% if post.is_published %}
+                                 the post is published
+                             {% else %}
+                                 the post is not published
+                             {% endif %}
+                           </h6>
+                         </div>
+                     </div>  
+                 </div>
+                 {% endfor %}
+             </div>
+         </div>
+ </section> <!-- start of latest posts section -->
 {% endblock %}
