@@ -1,8 +1,9 @@
 {% extends 'main/control.html' %}
 
 {% block content %}
+
 <h1>Latest Posts</h1>
-{% for blog in bolgs %}
+{% for blog in view %}
     <div class="post">
         <h2>{{ blog.title }}</h2>
         <p>{{ blog.content }}</p>
@@ -10,5 +11,5 @@
     </div>
 
 {% endfor %}
-<p>No posts available.</p>
+<!-- <p>No posts available.</p> -->
 {% endblock %}  

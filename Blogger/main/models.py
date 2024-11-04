@@ -7,3 +7,4 @@ class Blog(models.Model):
     content = models.TextField()
     is_published = models.BooleanField() 
     published_at = models.DateField()  
+    poster = models.ImageField(upload_to="images/" , default="images/default.jpg")
