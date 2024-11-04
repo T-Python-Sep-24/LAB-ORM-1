@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Update Blog {% endblock %}
+
+{% block content %}
+
+<div class="create_main">
+    <h1 class="phudu">Update Your Blog Here</h1>
+
+    <form class="update_blog" action="{% url 'blog:update_blog_view' blog.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
+        <div>
+            <h3>Your Blog Title:</h3>
+            <input type="text" name="title" class="title_box"/>
+        </div>
+    
+        <div>
+            <h3>Write Your Blog:</h3>
+            <textarea name="content" class="blog_box"></textarea>
+        </div>
+
+        <div>
+            <h3>Upload A Poster If You Want</h3>
+            <input type="file" name="poster"/>
+        </div>
+
+        <div>
+            <h3>Do You Want To Publish It Now?</h3>
+            YES
+            <input type="radio" name="is_published" value="published"/>
+            NO
+            <input type="radio" name="is_published" value="not_published"/>
+        </div>
+
+        <input type="submit" value="Submit" class="phudu publish"/>
+    </form>
+</div>
+
+{% endblock %}

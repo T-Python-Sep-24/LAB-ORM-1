@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.utils.timezone import now
-from datetime import date
 from .models import Blog
 
 def create_blog_view(request:HttpRequest):
@@ -22,6 +20,12 @@ def create_blog_view(request:HttpRequest):
 def blog_view(request: HttpRequest, blog_id):
     blog = Blog.objects.get(pk=blog_id)
     
-    return render(request, "main/blog.html", {"blog": blog})
+    return render(request, "blog/blog.html", {"blog": blog})
+
+def update_blog_view(request: HttpRequest, blog_id:int):
+    blog = Blog.objects.get(pk=blog_id)
+    
+    return render(request, "blog/update.html", {"blog": blog})
+
      
 
