@@ -11,8 +11,18 @@
     </h1>
     <div class="row row-cols-1 row-cols-md-2 justify-content-center">
         <div
-            class="col shadow rounded-5 p-4 opacity-90 f-ubuntu bg-white {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
+            class="col shadow rounded-5 p-4 opacity-90 f-ubuntu text-start bg-white {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
             <h5>{{post.title}}</h5>
+            <p class="col-2 col-xxl-1 card-text small border-2 rounded-pill text-center
+                    {% if post.category == 'General' %} generaltag
+                    {% elif post.category == 'Travel' %} traveltag
+                    {% elif post.category == 'Sport' %} sporttag
+                    {% elif post.category == 'Entertainment' %} entertainmenttag
+                    {% elif post.category == 'Technology' %} technologytag
+                    {% elif post.category == 'Business' %} businesstag
+                    {% elif post.category == 'Culture' %} culturetag {% endif %}">
+                {{post.category}}
+            </p>
             <p class="lead">{{post.content}}</p>
             <p class="small">{{post.publishedAt}}</p>
             <img src="{{post.picture.url}}" class="h-50 w-100" alt="post image">
@@ -41,9 +51,9 @@
                 Are you sure you want to delete this post?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary shadow rounded-pill" data-bs-dismiss="modal">Close</button>
-                <a href="{% url 'post:deletePostView' post.id %}"
-                    class="btn btn-danger shadow rounded-pill">Delete</a>
+                <button type="button" class="btn btn-secondary shadow rounded-pill"
+                    data-bs-dismiss="modal">Close</button>
+                <a href="{% url 'post:deletePostView' post.id %}" class="btn btn-danger shadow rounded-pill">Delete</a>
             </div>
         </div>
     </div>
