@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<br>
+<article>
+<h1 style="margin-left: 2px; text-align: center;">{{ post.title }}</h1>
+{% if post.image %}
+<img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width:100%; height:auto; display: block; margin: 0 auto; max-width: 100%; height: auto;">
+{% else %}
+    <p>No image available</p>
+{% endif %}
+<p style="margin-left: 2px;">{{ post.content }}</p>
+<p style="margin-left: 2px;">Category: {{ post.get_category_display }}</p>
+<p style="margin-left: 2px;"><em>Published on: {{ post.published_at }}</em></p>
+<br>
+<a href="{% url 'update_post' post.id %}"  style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px; margin-left: 600px;">Edit Post</a>
+<a href="{% url 'delete_post' post.id %}" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px;">Delete Post</a>
+<a href="{% url 'homepage' %}" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px;">Back to Home</a>
+<br><br>
+</article>
+{% endblock %}

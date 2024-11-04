@@ -1,14 +1,34 @@
 {% extends 'main/base.html' %}
+<!--{%load static%}
+{%block style%}
+<head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+{%endblock%}for test ****--> 
 {% block content %}
 <br>
-    <h2>Latest Posts</h2>
-    {% for post in posts %}
-        <article>
-            <h3>{{ post.title }}</h3>
-            <p>{{ post.content }}</p>
-            <p><small>Published on {{ post.published_at }}</small></p>
-        </article>
-    {% empty %}
-        <p>No posts available.</p>
-    {% endfor %}
+<h1 style="text-align: center; ">Latest Posts</h1>
+<ul>
+    {% if posts and posts|length > 0 %}
+        {% for post in posts %}
+            <li>
+                <article>
+                <h2>{{ post.title }}</h2>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width:100%; height:auto; display: block; margin: 0 auto; max-width: 100%; height: auto;">
+                {% endif %}
+                <p>{{ post.content }}</p>
+                <p><em>Published on: {{ post.published_at|date:"F j, Y, g:i a" }}</em></p>
+                <p>Category: {{ post.get_category_display }}</p>
+            </li>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center;">No posts available.</p>
+    {% endif %}
+</article>
+</ul>
+<br>
+<a href="{% url 'add_post' %}" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px; margin-left: 700px;">Add New Post</a>
+<br><br>
+
 {% endblock %}

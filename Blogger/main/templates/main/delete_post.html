@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<br><br>
+<article>
+<h1 style="text-align: center;">Delete Post: {{ post.title }}</h1>
+<p style="text-align: center;">Are you sure you want to delete this post?</p>
+<br>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px; margin-left: 650px;">Yes, delete</button>
+    <a href="{% url 'post_detail' post.id %}" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px;">Cancel</a>
+</form>
+<br>
+</article>
+<br><br>
+{% endblock %}

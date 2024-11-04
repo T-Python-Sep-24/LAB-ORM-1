@@ -248,6 +248,7 @@ article h3 {
 article p {
     line-height: 1.6;
     color: #555;
+    text-align: center;
 }
 
 article small {

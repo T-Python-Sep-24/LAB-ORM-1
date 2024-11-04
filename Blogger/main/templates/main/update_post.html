@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<br>
+<h1 style="text-align: center;">Edit Post: {{ post.title }}</h1>
+<form method="post" enctype="multipart/form-data" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+</form>
+<a href="{% url 'post_detail' post.id %}" style="color: aliceblue; text-decoration: none; padding: 10px; background-color: #5a5a5ad2; border-radius: 5px; margin: 720px;">Back to Post</a>
+<br><br>
+{% endblock %}
+
