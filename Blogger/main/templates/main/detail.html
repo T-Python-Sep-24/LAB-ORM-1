@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Detail{% endblock %}
+{% block content %}
+<div class="post-detail">
+    <div class="post-content">
+        <h1>{{ post_detail.title }}</h1>
+        <img src="{{ post_detail.image.url }}" class="image">
+        <p>{{ post_detail.content }}</p>
+        <p>{{ post_detail.category }}</p>
+        
+        <small>Published on: {{ post_detail.published_at }}</small>
+    </div>
+    <div class="button-container">
+        <a href="{% url 'main:update_view' post_detail.id %}" class="update-button">Update Post</a>
+        <a href="{% url 'main:delete_view' post_detail.id %}" class="update-button">delete Post</a>
+    </div>
+
+</div>
+{% endblock %}

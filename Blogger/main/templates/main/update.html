@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Update Post{% endblock %}
+
+{% block content %}
+    <h2>Update {{post_detail.title}}</h2>
+    <div class="Post-Form">
+        <form action="{% url 'main:update_view' post_detail.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Title" value="{{post_detail.title}}" required>
+            <textarea name="description" placeholder="Description">{{post_detail.content}}</textarea required>
+            <div class="image" >
+                
+                <img src="{{ post_detail.image.url }}" class="image-preview">
+
+                           <div class="image-container">
+                <label for="image">Choose an image:</label>
+                <input type="file" name="image" id="image" class="file" required>
+            </div>
+            </div>
+
+            <div class="category-container">
+                <label for="category">Choose a category:</label>
+                <select name="category" id="category" required>
+                    <option value="general" selected>General</option>
+                    <option value="tech">Tech</option>
+                    <option value="games">Games</option>
+                    <option value="advice">Advice</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+
+            <input type="submit" value="Update Post">
+        </form>
+    </div>
+{% endblock %}

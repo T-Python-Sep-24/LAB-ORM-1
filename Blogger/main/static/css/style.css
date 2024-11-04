@@ -147,3 +147,126 @@ footer .container {
     color: #888;
     font-size: 0.9rem;
 }
+
+.post-item .image {
+    width: 200px !important; 
+    height: 200x !important; 
+}
+
+.post-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+
+.post-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+
+.post-content .image {
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    border-radius: 8px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 2rem;
+}
+
+.update-button {
+    padding: 0.7rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.update-button:hover {
+    background-color: #555;
+}
+.image {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.image-preview {
+    width: 100px; 
+    height: auto; 
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.category-container label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.category-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.category-container select:hover {
+    border-color: #888;
+}
+
+.category-container select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.image-container label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.image-container input[type="file"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 100%;
+}
+
+.image-container input[type="file"]:hover {
+    border-color: #888;
+}
