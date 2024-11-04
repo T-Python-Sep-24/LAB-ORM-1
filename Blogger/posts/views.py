@@ -8,8 +8,7 @@ def create_post_view(request: HttpRequest) -> HttpResponse:
         new_post = Post(
             title=request.POST.get("title"),
             content=request.POST.get("content"),
-            is_published=True if request.POST.get("is_published") == "on" else False,  
-            published_at=request.POST.get("published_at") or timezone.now(),  
+            is_published=True if request.POST.get("is_published") == "on" else False,   
         ) 
         new_post.save()
 
