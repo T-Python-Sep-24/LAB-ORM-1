@@ -7,8 +7,8 @@
 <div class="create_main">
     <h1 class="phudu">create new Blog !</h1>
 
-    <form class="create_info" action="{% url 'blog:create_blog_view' %}" method="post">
-        {% csrf_token %}
+    <form class="create_info" action="{% url 'blog:create_blog_view' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %} 
         <div>
             <h3>Your Blog Title:</h3>
             <input type="text" name="title" class="title_box"/>
@@ -17,6 +17,11 @@
         <div>
             <h3>Write Your Blog:</h3>
             <textarea name="content" class="blog_box"></textarea>
+        </div>
+
+        <div>
+            <h3>Upload A Poster If You Want</h3>
+            <input type="file" name="poster"/>
         </div>
 
         <div>

@@ -9,9 +9,14 @@
     <div class="blogs">
         {% for b in blog %}
             <div class="blog_report">
+                <img src="{{b.poster.url}}" style="width: 100%; margin-top:1rem; border-radius: 10px;"/>
                 <h3 class="phudu">{{b.title}}</h3>
                 <p>{{b.content}}</p>
-                <h5>Published at {{ b.published_at }}</h5>
+                {% if b.is_published %}
+                    <h5>Published at {{ b.published_at }}</h5>
+                {% else %}
+                    <h5>Not published yet.</h5>
+                {%endif %}
             </div>
             {% empty %}
                 <p>No blog posts available.</p>
