@@ -8,9 +8,9 @@
         <h4 class="amatic-sc-regular">"IF YOU HAVE THE ABILITY TO LOVE, LOVE YOUR SELF FIRST"</h4>
     </div>
     <div class="choices-bar">
-        <a href="{%url 'posts:add_post_view'%}" class="rochester-regular">Add post</a>
-        <a href="" class="rochester-regular">Publish post</a>
-        <a href="" class="rochester-regular">Delete post</a>
+        <a href="{%url 'posts:add_post_view'%}" class="rochester-regular">Add Post</a>
+        <a href="" class="rochester-regular">Archives</a>
+        <a href="" class="rochester-regular">Relife</a>
     </div>
     <div class="welcoming-area">
         <img src="{%static 'images/plant.jpg'%}"/>
@@ -20,20 +20,22 @@
         </section>
     </div>
     <h1 class="rochester-regular blog-head">Blogs</h1>
+    <div class="blogs-container">
     <div class="display-blogs">
         {%for post in posts%}
         <div class="card">
-            <img src="{%static 'images/blog-card.jpg'%}" />
+            <img src="{{post.poster.url}}" />
             <div class="card-body">
                 <h4 class="amatic-sc-regular">publisher</h4>
                 <h1 class="rochester-regular">{{post.title}}</h1>
-                <p>{{post.content}}</p>
+                <p>{{post.content|truncatechars:100}}</p>
                 <div class="card-footer">
                     <p> date: {{post.published_at}}</p>
-                    <a href="" class="rochester-regular">Read</a>
+                    <a href="{% url 'posts:post_detail_view' post.id %}" class="rochester-regular">Read</a>
                 </div>   
             </div>
         </div>
         {%endfor%}
     </div>
+</div>
     {% endblock%}

@@ -130,11 +130,19 @@ body a:hover{
     width: 100%;
 }
 
+.blogs-container{
+    display: flex;   
+    flex-direction: row;      
+    justify-items: center; 
+    align-items: center;
+    padding: 1rem; 
+}
 .display-blogs {
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     gap: 1rem; 
-    padding: 1rem; 
+    max-width: 1200px;
+    width: 100%;  
 }
 
 .card {
@@ -150,8 +158,6 @@ body a:hover{
 .card img {
     width: 100%;
     border-radius: 10px 10px 0px 0px;
-    height: 50%; 
-    object-fit: cover; 
 }
 
 .card-body {
