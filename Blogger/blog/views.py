@@ -1,20 +1,29 @@
 from django.shortcuts import render, redirect
 from .models import Post
 from django.http import HttpRequest,HttpResponse
-from .forms import PostForm
+from .models import Post
+from django.utils import timezone
+
+
 # Create your views here.
 
 
 def home(request:HttpRequest):
-    posts = Post.objects.filter(is_published=True).order_by('-published_at')
+    posts = Post.objects.all()
     return render(request, 'blog/home.html', {'posts': posts})
 
-def add_post(request : HttpRequest):
+
+
+def add_post(request: HttpRequest):
     if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = PostForm()
-    return render(request, 'blog/add_post.html', {'form': form})
+        new_post = Post(
+            title=request.POST["title"],
+            content=request.POST["content"],
+            is_published=True if request.POST.get("is_published") == "on" else False,
+            published_at=request.POST.get("published_at", timezone.now()),
+        )
+        new_post.save()
+        return redirect('home')
+
+    return render(request, "blog/add_post.html" )
+
