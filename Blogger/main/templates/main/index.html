@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="pt-5">Latest Posts</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+            {% for post in posts %}
+            <div class="col-sm-6 mb-3 mb-sm-0 py-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ post.title }}</h5>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.published_at }}</h6>
+                      <p class="card-text">{{ post.content }}</p>
+                      <h6 class="card-subtitle mb-2 text-body-secondary">
+                        {% if post.is_published %}
+                            the post is published
+                        {% else %}
+                            the post is not published
+                        {% endif %}
+                      </h6>
+                    </div>
+                </div>  
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

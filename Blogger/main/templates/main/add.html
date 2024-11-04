@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Add Post{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="pt-5">Add a New Post</h1>
+    <form action="{% url 'main:add_view' %}" method="post">
+        {% csrf_token %}
+        <div class="row flex-column">
+            <input class="col-sm-5 my-2" placeholder="Title" type="text" name="title" />
+            <textarea class="col-sm-5 my-2" placeholder="Content" name="content"></textarea>
+            <div class="form-check my-2">
+                <input class="form-check-input" type="checkbox" value="True" id="flexCheckIndeterminate" name="is_published">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                  Is it published
+                </label>
+            </div> <!-- end of is published -->
+            <input class="col-sm-5 my-2 btn-primary" type="submit" />
+        </div>
+    </form>
+</div>
+{% endblock %}
