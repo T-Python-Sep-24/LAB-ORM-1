@@ -10,12 +10,19 @@
     <main>
         <div class="form-container">
             <h1 class="form-title">Create New Post </h1>
-            <form action="{% url 'bloggerApp:create_post_view' %}" method="post">
+            <form action="{% url 'postsApp:create_post_view' %}" method="post">
                 {% csrf_token %}
                 <input class="post-title" type="text" name="title" placeholder="Post Title" required>
                 <textarea class="post-content" name="content" placeholder="Enter Post description" required></textarea>
-                <input class="add-btn create-post" type="submit" value="Create Post">
+                <input class="add-btn create-post" type="submit" value="Create Post" onclick="show_alert()">
             </form>
         </div>
     </main>
+{% endblock %}
+{% block scripts %}
+    <script
+        function show_alert() {
+            document.alert("Hello! I am an alert box!");
+        }
+    </script>
 {% endblock %}

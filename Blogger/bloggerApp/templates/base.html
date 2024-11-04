@@ -24,7 +24,7 @@
         </nav>
         <a href="{% url 'bloggerApp:main_view' %}"><img src="{% static 'images/blogger_logo.png' %}"></a>
         <div class="navbar-right">
-            <a class="add-btn" href="{% url 'bloggerApp:create_post_view' %}">Add New Post</a>
+            <a class="add-btn" href="{% url 'postsApp:create_post_view' %}">Add New Post</a>
             <a class="logo-btn" href="{% url 'bloggerApp:main_view' %}"><span class="material-symbols-outlined">login</span></a>
             <a class="logo-btn" href="{% url 'bloggerApp:main_view' %}"><span class="material-symbols-outlined">search</span></a>
         </div>
@@ -32,5 +32,6 @@
     {% block content %}
     {% endblock %}
     <footer><h1>@ All Rights Reserved to HmzH</h1></footer>
+
 </body>
 </html>

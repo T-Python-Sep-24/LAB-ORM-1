@@ -1,11 +1,10 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
     font-family: "Gamja Flower";
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    box-sizing: border-box;
 
 }
 header{
@@ -187,7 +186,7 @@ form input, form textarea, form select{
 }
 .hr{
     color: black;
-    width: 130%;
+    width: 100%;
     padding: 0;
     margin: 0;
 }
@@ -204,6 +203,10 @@ form input, form textarea, form select{
 .post-card a:hover {
     box-shadow: 5px 5px 1.5rem 0rem black;
     transition: 0.1s linear;
+}
+.card-actions{
+    display: flex;
+    justify-content: center;
 }
 
 
