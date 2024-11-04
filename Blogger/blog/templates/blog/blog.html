@@ -9,10 +9,11 @@
 <div class="add_post">
     <h1>Post blog</h1>
     <div class="froms">
-        <form action="{% url 'blog:new_post_view' %}" method="post">
+        <form action="{% url 'blog:new_post_view' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="text" placeholder="enter title" name="title" required>
             <textarea name="content" placeholder="content" required></textarea>
+            <input type="file" name="image" class="file">
             <input type="submit" value="send post" class="btn">
         </form>
     </div>
