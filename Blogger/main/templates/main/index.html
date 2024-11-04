@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+
+
+{%block title%}HOME{% endblock %}
+
+
+{% block content %}
+    <div class="home">
+        <h1>Latest Posts</h1>
+        
+        <div class="blogs">
+            {% for blog in blogs %}
+            <div class="blog">
+                
+                    <h2>{{blog.title}}</h2>
+                    <p>{{blog.content}}</p>
+                    <p class="date">{{blog.published_at|date:"y-m-d H:i"}}</p>
+                
+            </div>
+            {% endfor %}  
+        </div>
+        
+    </div>
+    
+
+
+
+
+{% endblock %}

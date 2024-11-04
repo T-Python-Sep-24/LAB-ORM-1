@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    gap: 2rem;
+    background-color: rgb(30, 30, 30);
+    
+}
+
+.container header{
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background-color: orange;
+    
+}
+
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.bar nav{
+    color: white;
+    background-color: rgb(30, 30, 30);
+    border-radius: 10rem;
+    padding: 1.5rem 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+    
+}
+.bar nav a{
+    color: white;
+  
+}
+
+header .icons {
+    gap: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container header .icons .sign{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+main{
+    flex: 1;
+    padding: 1.5rem 3rem;;
+}
+ 
+footer{
+    
+    background-color: black;
+    color: white;
+    text-align: center;
+    
+}
+
+.home{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.home .blogs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10rem;
+}
+
+.home .blogs .blog{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 40%;
+    padding: 16px;
+}
+.home .blogs .date{
+    color: orange;
+}
+
+.home .blogs .blog p{   
+  overflow-wrap: break-word;
+}
+
+.add_post h1{
+    color: white;
+}
+
+.add_post{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+form input{
+    padding: 12px;
+
+    width: 437px;
+}
+
+form textarea{
+    padding-top: 4px;
+    padding-left: 4px;
+    width: 437px;
+    height: 146px;
+}
+
+form .btn{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: orange;
+}
+
+
+
