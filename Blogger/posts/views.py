@@ -16,3 +16,10 @@ def create_post_view(request: HttpRequest) -> HttpResponse:
         return redirect("main:index_view")  
 
     return render(request, "posts/create.html")
+
+
+def post_detail_view(request:HttpRequest, post_id:int):
+
+    post = Post.objects.get(pk=post_id)
+
+    return render(request, 'posts/post_detail.html', {"post" : post})
