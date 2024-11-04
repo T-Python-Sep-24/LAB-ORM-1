@@ -108,7 +108,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    min-height: 100vh;
 }
 form {
     margin: 2rem;
@@ -299,4 +299,37 @@ main h1 {
 
         font-size: 15px;
     }
+}
+
+/* not found page style */
+.not-found-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+.top-part{
+    display:flex;
+    flex-direction: row;
+}
+.a {
+    display:flex;
+    flex-direction: column;
+    color: #e6a701;
+
+
+}
+.a h1 {
+    font-weight: 600;
+    font-size: 8rem;
+}
+.a h3 {
+    font-weight: 600;
+    font-size: 30px;
+}
+.not-found-container img {
+    padding-top: 3rem;
+    width: 40%;
+    border-radius: 1rem;
 }

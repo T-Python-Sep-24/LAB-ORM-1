@@ -25,9 +25,14 @@ def create_post_view(request: HttpRequest):
     return request
 
 def post_details_view(request: HttpRequest, post_id:int):
-    post = Post.objects.get(pk=post_id)
-    request = render(request, 'post_details.html', context={'post': post})
-    return request
+
+    try:
+        post = Post.objects.get(pk=post_id)
+        request = render(request, 'post_details.html', context={'post': post})
+        return request
+    except Exception as e:
+        return render(request, 'page_not_found.html')
+        print(e)
 
 def update_post_view(request: HttpRequest, post_id:int):
     post = Post.objects.get(pk=post_id)
