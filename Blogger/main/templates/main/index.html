@@ -1,19 +1,28 @@
+
 {% extends "main/base.html" %}
+{% load static %}
 
 {% block title %}Home - My Blog{% endblock %}
 
 {% block content %}
-<section class="posts">
-    <article class="post">
-        <h2>First Blog Post</h2>
-        {% for b in blog %}
-            {{b.title}}
-            {{b.contant}}
-            {{b.is_published}}
-            {{b.published_at}}
-        {% endfor %}
-    </article>
-   
 
-</section>
-{% endblock %}
+<div class="row">
+    <section class="latest-posts">
+        <h2>Latest Posts</h2>
+        <div class="post-grid">
+            {% for b in blog %}
+                <div class="post-card">
+                    <div class="post-image">
+                        <img src="{{ b.poster.url }}"  >
+                    </div>
+                    <a href="{% url 'main:post_detail' b.id %}"><span class="category">{{ b.titel }}</span></a>
+                    
+                    <div class="author-info">{{ b.published_at }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock content %}
+
+

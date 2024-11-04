@@ -8,18 +8,29 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>My Blog</h1>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Blogger</div>
         <nav>
             <a href="{% url 'main:home_view' %}">Home</a>
-            <a href="{% url 'main:new_post' %}">Add New Post</a>
+            <a href="{% url 'main:new_post' %}">Add new</a>
+            
         </nav>
     </header>
-
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}{%endblock content %}
     </main>
-
-   
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>Blogger</span>
+                </div>
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>"Welcome to Blogger! Our platform allows you to share your thoughts, stories, and insights with the world. Whether you're a seasoned writer or just starting out, Blogger provides a welcoming space to create and connect with readers everywhere."</p>
+                </div>
+              
+            </div>
+        </footer>
 </body>
 </html>

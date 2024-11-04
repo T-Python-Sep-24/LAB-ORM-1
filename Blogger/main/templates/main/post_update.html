@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+
+{% block title %}Ubdate Post - My Blog{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-4">
+        <form class="new-post-form" action="{% url 'main:post_update' post.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1 class="text-center fade-in">Update:{{post.titel}}</h1> 
+            
+            <input type="text" placeholder="Title" name="titel" class="form-control" required value="{{post.titel}}">
+            
+            <textarea name="contant" placeholder="contant" class="form-control" rows="5" required >{{post.contant}}</textarea>
+            
+            <div class="form-check">
+                <input type="checkbox" name="is_published" id="is_published" class="form-check-input" checked value="{{post.is_published}}">
+                <label for="is_published" class="form-check-label">Publish?</label>
+            </div>
+            
+            <input type="date" name="published_at" class="form-control" required value="{{post.published_at.strftime}}"/>
+
+            <div class="row">
+                <div class="col-2">
+                    <img src="{{ post.poster.url }}" style="width: 100px; height: auto;" class="img-fluid" />
+                    <input type="file" name="poster"/>
+            
+           <input type="submit" value="update Post" class="btn btn-primary btn-block mt-3 " />
+                </div>
+            </div>
+            </div>
+            
+
+        </form>
+    </div>
+</div>
+{% endblock %}
