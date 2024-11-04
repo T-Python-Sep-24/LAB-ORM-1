@@ -7,7 +7,7 @@
 <div class="create_main">
     <h1 class="phudu">create new Blog !</h1>
 
-    <form class="create_info" action="{% url 'blog:create_blog_view' %}" method="post" enctype="multipart/form-data">
+    <form style="margin-bottom: 1.5rem;" class="create_info" action="{% url 'blog:create_blog_view' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
         <div>
             <h3>Your Blog Title:</h3>
