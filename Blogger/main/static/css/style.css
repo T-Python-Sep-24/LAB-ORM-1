@@ -88,15 +88,18 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10rem;
+    gap: 5rem;
 }
 
 .home .blogs .blog{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 40%;
+    width: 25%;
     padding: 16px;
+    
+    background-color: rgba(0, 0, 0, 0.538);
+    box-shadow:3px 3px 10px grey;
 }
 .home .blogs .date{
     color: orange;
