@@ -3,7 +3,6 @@
 {% block content %}
 {% block title %} Update Post | Blogger{% endblock %}
         <h1 class="text-center mb-4 fade-in">Update {{post.title}}</h1> 
-        <h2>hhh</h2>
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6 slide-in-left">
                 <form class="d-flex flex-column gap-3" action="{% url 'posts:post_update_view' post.id %}" method="post" enctype="multipart/form-data">
@@ -20,7 +19,7 @@
             </select>
             <div class="row">
                 <div class="col-3">
-                    <img src="{{post.poster.url}}" class="w-50" />
+                    <img src="{{ post.poster.url }}" class="w-100">
                 </div>
                 <div class="col">
                     <input type="file" name="poster" class="form-control"/>

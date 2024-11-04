@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from .models import Post
-from django.utils import timezone
+from django.shortcuts import render, get_object_or_404
+from django.http import Http404
+import logging
+
+logger = logging.getLogger(__name__)
 
 def create_post_view(request: HttpRequest) -> HttpResponse:
     if request.method == "POST":
@@ -19,11 +23,12 @@ def create_post_view(request: HttpRequest) -> HttpResponse:
     return render(request, "posts/create.html")
 
 
-def post_detail_view(request:HttpRequest, post_id:int):
-
-    post = Post.objects.get(pk=post_id)
-
-    return render(request, 'posts/post_detail.html', {"post" : post})
+def post_detail_view(request, post_id):
+    try:
+        post = get_object_or_404(Post, id=post_id)
+    except Http404:
+        return render(request, 'posts/404.html', status=404)
+    return render(request, 'posts/post_detail.html', {"post": post})
 
 
 def post_update_view(request:HttpRequest, post_id:int):
@@ -49,3 +54,10 @@ def post_delete_view(request:HttpRequest, post_id:int):
     post.delete()
 
     return redirect("main:index_view")
+
+
+def custom_404_view(request, exception):
+    return render(request, "posts/404.html", status=404)
+
+
+
