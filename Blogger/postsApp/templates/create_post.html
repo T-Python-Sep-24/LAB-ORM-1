@@ -10,10 +10,11 @@
     <main>
         <div class="form-container">
             <h1 class="form-title">Create New Post </h1>
-            <form action="{% url 'postsApp:create_post_view' %}" method="post">
+            <form action="{% url 'postsApp:create_post_view' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input class="post-title" type="text" name="title" placeholder="Post Title" required>
                 <textarea class="post-content" name="content" placeholder="Enter Post description" required></textarea>
+                <input class="post-content" type="file" placeholder="Enter Post Image" name="post_img" required>
                 <input class="add-btn create-post" type="submit" value="Create Post" onclick="show_alert()">
             </form>
         </div>

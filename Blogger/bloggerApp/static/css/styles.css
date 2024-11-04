@@ -153,7 +153,7 @@ form input, form textarea, form select{
     width: 100%;
 }
 
-.post-card a{
+.post-card .post-card-link{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,9 +164,6 @@ form input, form textarea, form select{
     width: 18rem;
     height: auto;
     margin: 2rem 3rem;
-
-
-    border: 10px solid #ccc;
     box-shadow: 5px 6px 1rem 0rem black;
     position: relative;
     text-decoration: none;
@@ -179,17 +176,22 @@ form input, form textarea, form select{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    object-fit: fill;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
 }
 .post-card .post-title {
     font-size: 2rem;
+    font-weight: 600;
     padding: 0;
     margin: 0;
+    text-transform: uppercase;
 
 }
 .post-card .post-content {
     font-size: 1.5rem;
     padding: 15px;
+
 
 }
 .hr{
@@ -208,15 +210,50 @@ form input, form textarea, form select{
 
 
 }
-.post-card a:hover {
+.post-card .post-card-link:hover {
     box-shadow: 5px 5px 1.5rem 0rem black;
     transition: 0.1s linear;
 }
-.card-actions{
-    display: flex;
-    justify-content: center;
-}
+/* Post Details Page Styles */
 
+main h1 {
+    margin: 2rem 5rem;
+    font-size: 5rem;
+}
+.post-details-container {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: 5rem;
+
+
+}
+.img-cont{
+    width: 50%;
+    height: 90%;
+
+}
+.img-cont img{
+    width: 80%;
+
+}
+.data-cont {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 1.5rem;
+}
+.data-cont .desc{
+    padding: 3rem;
+}
+.data-cont .title{
+    padding-top: 4rem;
+}
+.data-cont .date{
+    padding-bottom: 4rem;
+}
 
 /* response to page size */
 @media(max-width:900px){

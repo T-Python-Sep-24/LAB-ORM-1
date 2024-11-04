@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Post Details {% endblock %}
+
+{% block content %}
+<main>
+    <h1 class="details-header">Post Details</h1>
+    <div class="post-details-container">
+
+        <div class="img-cont"><img class="image" src="{{ post.post_img.url }}"></div>
+
+        <h3 class="date">{{post.published_at}}</h3>
+        <div class="data-cont">
+            <h1 class="title">{{post.title}}</h1>
+            <p class="desc">{{post.content}}</p>
+            <a class="link-btn" href="{% url 'postsApp:update_post_view' post.id %}">Edit</a>
+            <a class="link-btn" href="{% url 'postsApp:delete_post_view' post.id %}">Delete</a>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

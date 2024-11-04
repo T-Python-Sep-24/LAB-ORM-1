@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} New Post {% endblock %}
+
+{% block additional_styles %}
+<style>
+
+</style>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="form-container">
+        <h1 class="form-title">Update Post </h1>
+
+        <form action="{% url 'postsApp:update_post_view' post.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="post-title" type="text" name="title" placeholder="Post Title" value="{{post.title}}" required>
+            <textarea class="post-content" name="content" placeholder="Enter Post description" required>{{post.content}}</textarea>
+            <img src="{{post.post_img.url}}" width="20%">
+            <input class="post-content" type="file" placeholder="Enter Post Image" name="post_img">
+            <input class="add-btn edit-post" type="submit" value="Update Post">
+        </form>
+    </div>
+</main>
+{% endblock %}

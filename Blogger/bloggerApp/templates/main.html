@@ -12,13 +12,11 @@
     {% for blog in blogs %}
         {% if blog.is_published == True %}
             <div class="post-card">
-            <a href="/">
+            <a class="post-card-link" href="{% url 'postsApp:post_details_view' blog.id %}">
                 <img class="post_image" src="{{ blog.post_img.url }}">
                 <h3 class="post-title">{{blog.title}}</h3>
-<!--                <hr class="hr">-->
                 <p class="post-content">{{blog.content}}</p>
                 <h3 class="post-publish-date">{{blog.published_at}}</h3>
-
             </a>
 
             </div>
