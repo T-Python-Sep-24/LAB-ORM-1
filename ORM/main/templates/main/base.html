@@ -1,0 +1,24 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Django Tailwind Test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="/"class="text-xl font-bold text-gray-800">My Blog</a>
+        <a href="{% url 'main:create' %}" class="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600">Add Blog</a>
+    </div>
+
+    {% block content %}
+    
+    {% endblock %}
+
+</body>
+</html>
