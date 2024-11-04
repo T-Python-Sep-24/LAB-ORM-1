@@ -6,14 +6,26 @@
     <h1 class="details-header">Post Details</h1>
     <div class="post-details-container">
 
-        <div class="img-cont"><img class="image" src="{{ post.post_img.url }}"></div>
+        <div class="img-cont">
+            <img class="image" src="{{ post.post_img.url }}">
+        </div>
 
-        <h3 class="date">{{post.published_at}}</h3>
         <div class="data-cont">
             <h1 class="title">{{post.title}}</h1>
             <p class="desc">{{post.content}}</p>
-            <a class="link-btn" href="{% url 'postsApp:update_post_view' post.id %}">Edit</a>
-            <a class="link-btn" href="{% url 'postsApp:delete_post_view' post.id %}">Delete</a>
+            <p class="desc">{{post.category}}</p>
+
+        </div>
+
+        <div class="right-side">
+            <div class="actions">
+                <a class="link-btn action-btn" href="{% url 'postsApp:update_post_view' post.id %}">Edit</a>
+                <a class="link-btn action-btn" href="{% url 'postsApp:delete_post_view' post.id %}">Delete</a>
+            </div>
+            <div class="publish">
+                <h3 class="date">{{post.published_at}}</h3>
+                <h3 class="publisher">By: {{post.published_by}}</h3>
+            </div>
         </div>
     </div>
 

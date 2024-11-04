@@ -7,7 +7,14 @@ def create_post_view(request: HttpRequest):
     # print(request.POST)
 
     if request.method == "POST":
-        new_post = Post(title=request.POST['title'], content=request.POST['content'], post_img=request.FILES['post_img'])
+
+        new_post = Post(
+            title=request.POST['title'],
+            content=request.POST['content'],
+            published_by=request.POST['published_by'],
+            post_img=request.FILES['post_img'],
+            category=request.POST['category']
+        )
 
         new_post.save()
 

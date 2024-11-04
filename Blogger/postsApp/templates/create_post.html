@@ -13,9 +13,21 @@
             <form action="{% url 'postsApp:create_post_view' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input class="post-title" type="text" name="title" placeholder="Post Title" required>
+                <input class="post-title" type="text" name="published_by" placeholder="Post Publisher" required>
+
+                <select class="post-title" name="category" required>
+                    <option selected>Select Category</option>
+                    <option value="portrait">portrait</option>
+                    <option value="nature">nature</option>
+                    <option value="architecture">architecture</option>
+                    <option value="animals">animals</option>
+                    <option value="plants">plants</option>
+                    <option value="objects">objects</option>
+                </select>
+
                 <textarea class="post-content" name="content" placeholder="Enter Post description" required></textarea>
                 <input class="post-content" type="file" placeholder="Enter Post Image" name="post_img" required>
-                <input class="add-btn create-post" type="submit" value="Create Post" onclick="show_alert()">
+                <input class="add-btn create-post" type="submit" value="Create Post">
             </form>
         </div>
     </main>

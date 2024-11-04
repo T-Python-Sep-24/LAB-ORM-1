@@ -15,7 +15,9 @@
             <a class="post-card-link" href="{% url 'postsApp:post_details_view' blog.id %}">
                 <img class="post_image" src="{{ blog.post_img.url }}">
                 <h3 class="post-title">{{blog.title}}</h3>
+                <h3 class="post-content">By: {{blog.published_by}}</h3>
                 <p class="post-content">{{blog.content}}</p>
+                <p class="post-content">{{blog.category}}</p>
                 <h3 class="post-publish-date">{{blog.published_at}}</h3>
             </a>
 

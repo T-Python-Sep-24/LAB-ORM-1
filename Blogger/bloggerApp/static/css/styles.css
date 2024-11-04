@@ -222,21 +222,33 @@ main h1 {
 }
 .post-details-container {
     display: flex;
-    flex-direction: row;
 
-    margin-left: 5rem;
-
+    height: 100%;
+    background-color: white;
+    margin: 5rem;
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 5px 6px 1rem 0rem black;
 
 }
 .img-cont{
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    height: 90%;
+    align-items: center;
+    justify-content: center;
 
 }
 .img-cont img{
-    width: 80%;
+    width: 70%;
+    border-radius: 25px;
 
 }
+.publish {
+    align-self: start;
+    padding: 7px;
+}
+
 .data-cont {
     width: 50%;
     display: flex;
@@ -245,15 +257,20 @@ main h1 {
 
     font-size: 1.5rem;
 }
-.data-cont .desc{
-    padding: 3rem;
+
+.right-side{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.data-cont .title{
-    padding-top: 4rem;
+.actions{
+
+    display: inline-flex;
+    padding: 10px;
+    align-self: end;
 }
-.data-cont .date{
-    padding-bottom: 4rem;
-}
+
+
 
 /* response to page size */
 @media(max-width:900px){
