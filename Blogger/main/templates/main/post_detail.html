@@ -10,8 +10,13 @@
 <div class="detail-post-container">
     <div class="detail-post-body">
         <img src="{{ post.main_photo.url }}" alt="{{ post.title }}" class="detail-img"/>
-        <p class="detail-article-date">{{ post.Published_at }}</p>
-        <p class="detail-article-content">{{ post.content }}</p>
+
+        <div class="date-catg-container">
+            <p class="detail-article-date">{{ post.published_at }}</p>
+            <p class="detail-article-category">{{ post.get_category_display }}</p> 
+        </div>
+        <div><p class="detail-article-content">{{ post.content }}</p></div>
+        
     </div>
     
     <div class="button-container">

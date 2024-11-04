@@ -14,12 +14,27 @@
     {% csrf_token %}
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" class="form-input" value="{{post.title}}" />
+
     <label for="main-photo">Main Photo:</label>
 
     <div class="file-upload">
-      <input type="file" id="main_photo" name="main_photo" class="file-input" value="{{post.main_photo.url}}"  accept="images/*"/> <!-- exaption to only exapt image(search more) -->
-      <span class="material-symbols-outlined upload-icon">upload</span> <!-- add the old pic --> 
+        <img src="{{ post.main_photo.url}}" alt="update-ima" class="update-ima">
+        <input type="file" id="main_photo" name="main_photo" class="file-input" value="{{post.main_photo.url}}"  accept="images/*"/> <!-- exaption to only exapt image(search more) -->
+        <span class="material-symbols-outlined upload-icon">upload</span> <!-- add the old pic --> 
+        
     </div>
+
+
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" class="form-input">
+        <option value="TECH" {% if post.category == 'TECH' %}selected{% endif %}>Technology</option>
+        <option value="BUS" {% if post.category == 'BUS' %}selected{% endif %}>Business</option>
+        <option value="LIFE" {% if post.category == 'LIFE' %}selected{% endif %}>Lifestyle</option>
+        <option value="EDU" {% if post.category == 'EDU' %}selected{% endif %}>Education</option>
+        <option value="HEALTH" {% if post.category == 'HEALTH' %}selected{% endif %}>Health</option>
+        <option value="ENT" {% if post.category == 'ENT' %}selected{% endif %}>Entertainment</option>
+    </select>
 
     <label for="content">Content:</label>
     <textarea id="content" name="content" class="form-textarea">{{post.content}}</textarea>

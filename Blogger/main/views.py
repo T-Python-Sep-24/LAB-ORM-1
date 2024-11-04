@@ -21,7 +21,8 @@ def new_posts_view(request: HttpRequest):
         new_post = Blog(
             title=request.POST["title"],
             main_photo=request.FILES["main_photo"],
-            content=request.POST["content"]
+            content=request.POST["content"],
+            category= request.POST["category"]
             )
         
         new_post.save()
@@ -54,6 +55,7 @@ def post_update_view(request: HttpRequest, post_id:int):
         posts.title = request.POST["title"]
         if "pomain_photost" in request.FILES: posts.main_photo=request.FILES["main_photo"],
         posts.content=request.POST["content"]
+        posts.category=request.POST["category"]
 
         posts.save()
 

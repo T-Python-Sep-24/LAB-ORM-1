@@ -259,7 +259,9 @@ form label {
 .file-upload {
   display: flex;
   align-items: center;
+  justify-items: center;
   position: relative;
+  gap: 30px;
 }
 
 .file-input {
@@ -421,6 +423,7 @@ form label {
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .button-container .btn-secondary {
@@ -429,6 +432,7 @@ form label {
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .button-container .btn-primary:hover {
@@ -493,9 +497,81 @@ footer {
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
+    font-size: 14px;
+
 }
 
 .not-found-container .btn-primary:hover {
   background-color: #7d6e55;
 }
+
+.article-card {
+  position: relative;
+}
+
+/* Category Label Styling */
+.article-category{
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  font-size: 12px;
+  font-weight: lighter;
+  color: #ffffff;
+  background-color: #4b3d36; 
+  padding: 4px 10px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.date-catg-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.detail-article-category{
+  position: absolute;
+  font-size: 12px;
+  font-weight: lighter;
+  color: #ffffff;
+  background-color: #4b3d36; 
+  padding: 4px 10px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 8px;
+  margin-left: 380px;
+
+}
+
+.update-ima{
+  width: 100px;
+}
+
+/* Dynamic Colors for Categories 
+.article-category[data-category="TECH"], .detail-article-category[data-category="TECH"] {
+  background-color: #007bff; /* Blue for Technology 
+}
+
+.article-category[data-category="BUS"], .detail-article-category[data-category="BUS"] {
+  background-color: #28a745; /* Green for Business 
+}
+
+.article-category[data-category="LIFE"], .detail-article-category[data-category="LIFE"] {
+  background-color: #ff6347; /* Tomato for Lifestyle 
+}
+
+.article-category[data-category="EDU"], .detail-article-category[data-category="EDU"] {
+  background-color: #ffc107; /* Yellow for Education
+}
+
+.article-category[data-category="HEALTH"], .detail-article-category[data-category="HEALTH"] {
+  background-color: #dc3545; /* Red for Health 
+}
+
+.article-category[data-category="ENT"], .detail-article-category[data-category="ENT"] {
+  background-color: #6f42c1; /* Purple for Entertainment 
+}
+*/
 

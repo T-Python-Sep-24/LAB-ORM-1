@@ -17,8 +17,20 @@
     <label for="main-photo">Main Photo:</label>
 
     <div class="file-upload">
-      <input type="file" id="main_photo" name="main_photo" class="file-input"  accept="images/*"/> <!-- exaption to only exapt image(search more) -->
+      <input type="file" id="main_photo" name="main_photo" class="file-input" accept="images/*"/> <!-- exaption to only exapt image(search more) -->
       <span class="material-symbols-outlined upload-icon">upload</span>
+    </div>
+
+    <div>
+      <label for="category">Category:</label>
+        <select name="category" id="category" class="form-input">
+          <option value="TECH">Technology</option>
+          <option value="BUS">Business</option>
+          <option value="LIFE">Lifestyle</option>
+          <option value="EDU">Education</option>
+          <option value="HEALTH">Health</option>
+          <option value="ENT">Entertainment</option>
+        </select>
     </div>
 
     <label for="content">Content:</label>
