@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Blogger</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <header>
         <h1 >Blogger</h1>
         <nav class="nav_hp">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'add_post' %}">Add Post</a>
+            <a href="{% url 'blog:home' %}">Home</a>
+            <a href="{% url 'blog:add_post' %}">Add Post</a>
         </nav>
     </header>
     <main>
