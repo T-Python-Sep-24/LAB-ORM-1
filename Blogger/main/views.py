@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from post.models import Post
 
 #Home page
-def mainView(request: HttpRequest):
+def homeView(request: HttpRequest):
     #Get the list of posts
     posts = Post.objects.all()
 

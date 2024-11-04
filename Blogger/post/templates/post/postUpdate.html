@@ -1,36 +1,44 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}New Post{% endblock %}
+{% block title %}Update Post{% endblock %}
 
 {% block content %}
 <div class="container text-center">
     <h1
         class="f-ubuntu mt-5 mb-4 pt-5 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
-        New Post: </h1>
+        Update Post: </h1>
     <div class="row row-cols-1 row-cols-md-2 justify-content-center">
         <div class="col shadow rounded-5 py-3 px-4 opacity-90 bg-white">
-            <form class="form-floating d-flex flex-column gap-2 mt-3 px-2" action="{% url 'post:newPostView' %}"
-                method="post" enctype="multipart/form-data">
+            <form class="form-floating d-flex flex-column gap-2 mt-3 px-2"
+                action="{% url 'post:updatePostView' post.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <span class="material-symbols-outlined rounded-pill p-2 writeicon">
                     history_edu
                 </span>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control f-ubuntu" placeholder="Title.." name="title"
-                        id="floatingTitle" required>
+                        id="floatingTitle" value="{{post.title}}">
                     <label for="floatingTitle" class="f-ubuntu">Title</label>
                 </div>
                 <div class="form-floating mb-3">
                     <textarea class="form-control f-ubuntu" placeholder="Whats on you mind?.." name="content"
-                        id="floatingContent" style="height: 100px"></textarea>
+                        id="floatingContent" style="height: 100px">{{post.content}}</textarea>
                     <label for="floatingContent" class="f-ubuntu">Content</label>
                 </div>
                 <div class="mb-3 text-start f-ubuntu">
-                    <label for="formFile" class="form-label">Upload a picture</label>
-                    <input class="form-control border-2 focus-ring focus-ring-secondary" type="file" name="picture" id="formFile" accept="images/*">
+                    <div class="row justify-content-center my-3">
+                        <div class="col-6">
+                            <img src="{{post.picture.url}}" alt="post picture" class="w-100 rounded-5 shadow">
+                        </div>
+                        <div class="col-6">
+                            <label for="formFile" class="form-label">Change picture</label>
+                            <input class="form-control border-2 focus-ring focus-ring-secondary" type="file"
+                                name="picture" id="formFile">
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-outline-secondary border-2" type="submit">Publish</button>
+                <button class="btn btn-outline-secondary border-2" type="submit">Update Post</button>
             </form>
         </div>
     </div>
