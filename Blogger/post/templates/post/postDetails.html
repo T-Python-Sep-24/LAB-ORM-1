@@ -13,7 +13,7 @@
         <div
             class="col shadow rounded-5 p-4 opacity-90 f-ubuntu text-start bg-white {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
             <h5>{{post.title}}</h5>
-            <p class="col-2 col-xxl-1 card-text small border-2 rounded-pill text-center
+            <p class="col-4 col-sm-2 card-text small border-2 rounded-pill text-center
                     {% if post.category == 'General' %} generaltag
                     {% elif post.category == 'Travel' %} traveltag
                     {% elif post.category == 'Sport' %} sporttag

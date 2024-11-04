@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block content %}
+
+<h1
+    class="f-ubuntu mt-5 mb-4 pt-5 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
+    404 not found
+</h1>
+
+<div class="row row-cols-1 row-cols-md-2 justify-content-center">
+    <div
+        class="col shadow rounded-5 p-4 opacity-90 f-ubuntu text-start bg-white {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
+        
+    </div>
+</div>
+{% endblock %}
