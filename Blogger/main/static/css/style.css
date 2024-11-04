@@ -144,3 +144,26 @@ header .overlay {
     background: rgba(181, 81, 133, 0.397);
     border: solid 5px rgb(207, 108, 149);
 }
+
+/* 404 Styling */
+.notfound {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    animation: move 5s linear 2s infinite ease-in-out;
+}
+
+/* Animation */
+@keyframes move {
+    0% {
+        opacity: 0;
+        transform: translate(20%, -25%) scale(0.2);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+}

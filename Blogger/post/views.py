@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
+from django.http import HttpRequest, Http404
 from post.models import Post
 
 #New post page
@@ -28,7 +28,6 @@ def updatePostView(request: HttpRequest, postid:int):
     post = Post.objects.get(pk=postid)
     categories = Post.CATEGORIES
     response = render(request, 'post/postUpdate.html', context={"post":post, "categories":categories})
-
     if request.method == "POST":
         post.title = request.POST["title"]
         post.content = request.POST["content"]

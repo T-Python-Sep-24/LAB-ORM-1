@@ -1,19 +1,40 @@
-{% extends 'main/base.html' %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}500{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrong Entry</title>
+    <style>
+        /* Your custom CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+        }
 
-{% block content %}
+        .container {
+            text-align: center;
+            padding: 100px;
+        }
 
-<h1
-    class="f-ubuntu mt-5 mb-4 pt-5 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
-    500
-</h1>
+        h1 {
+            font-size: 48px;
+            color: #8849a3;
+        }
 
-<div class="row row-cols-1 row-cols-md-2 justify-content-center">
-    <div
-        class="col shadow rounded-5 p-4 opacity-90 f-ubuntu text-start bg-white {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} bg-dark {% endif %}">
-        
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Oops!</h1>
+        <p>The post you're looking for doesn't exist. Let's get you back on track:</p>
+        <a href="/" style="text-decoration: none; color: #8849a3;">Go to Homepage</a>
     </div>
-</div>
-{% endblock %}
+</body>
+
+</html>
