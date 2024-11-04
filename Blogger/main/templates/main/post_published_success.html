@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Post Published{% endblock %}
+
+{% block content %}
+<div class="success-message-container">
+    <h1>Post Published Successfully!</h1>
+    <p>Your post has been published and is now live.</p>
+    
+    <div class="button-container">
+        <a href="{% url 'main:new_posts_view' %}" class="btn btn-primary">Create Another Post</a>
+        <a href="{% url 'main:main_view' %}" class="btn btn-secondary">Go to Home</a>
+    </div>
+</div>
+{% endblock %}

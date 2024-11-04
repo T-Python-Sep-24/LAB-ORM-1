@@ -6,7 +6,8 @@ from django.utils import timezone
 class Blog(models.Model):
 
     title = models.CharField(max_length=1024)
-    main_photo = models.ImageField(upload_to='blog_photos/')
+    main_photo = models.ImageField(upload_to="blog_photos/", default="blog_photos/code.jpg")
     content = models.TextField()
     is_published = models.BooleanField(default=True)
-    Published_at = models.DateTimeField(default=timezone.now)
+    Published_at = models.DateTimeField(auto_now=True)
+

@@ -182,10 +182,15 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.article-card a {
+  text-decoration: none;
+  color: #4b3d36;
+}
+
 .article-image {
   width: 100%;
   height: 150px;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
 }
@@ -201,6 +206,7 @@ header {
   font-weight: bold;
   color: #4b3d36;
   margin-bottom: 5px;
+  text-decoration: none;
 }
 
 .article-description {
@@ -267,7 +273,7 @@ form label {
 }
 
 .upload-icon {
-  font-size: 24px;
+  font-size: 28px;
   color: #4b3d36;
   cursor: pointer;
   position: relative;
@@ -277,7 +283,7 @@ form label {
 /* Submit Button */
 .submit-button {
   display: block;
-  width: 30%;
+  width: 50%;
   justify-content: center;
   padding: 12px;
   font-size: 16px;
@@ -290,6 +296,147 @@ form label {
   text-align: center;
   margin: 20px auto 0;
   margin-top: 20px;
+}
+
+/* Main title */
+.detail-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #4b3d36;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 220px;
+  padding: 0px ;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+/* Detail Post container */
+
+.detail-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f2ebe0;
+  border-radius: 8px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+}
+
+.detail-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.detail-article-date {
+  font-size: 14px;
+  color: #a19885;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.detail-article-content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #4b3d36;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #7d6e55;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.success-message-container {
+  text-align: center;
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.success-message-container h1 {
+  font-size: 28px;
+  color: #4b3d36;
+  margin-bottom: 10px;
+}
+
+.success-message-container p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-container .btn-primary {
+  background-color: #4b3d36;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.button-container .btn-secondary {
+  background-color: #4b3d36;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.button-container .btn-primary:hover {
+  background-color: #7d6e55;
+}
+
+.button-container .btn-secondary:hover {
+  background-color: #7d6e55;
 }
 
 /* Footer */
@@ -306,6 +453,49 @@ footer {
 
 /* Animations */
 @keyframes fadeInText {
-  from {opacity: 0;}
-  to {opacity: 5;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 5;
+  }
 }
+
+
+/* Page Not Found */
+
+.not-found-container {
+  text-align: center;
+  margin: 50px auto;
+  padding: 30px;
+  max-width: 600px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-container h1 {
+  font-size: 28px;
+  color: #4b3d36;
+  margin-bottom: 10px;
+}
+
+.not-found-container p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  
+}
+
+.not-found-container .btn-primary {
+  background-color: #4b3d36;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.not-found-container .btn-primary:hover {
+  background-color: #7d6e55;
+}
+

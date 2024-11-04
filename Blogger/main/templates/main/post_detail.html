@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Post Details{% endblock %}
+
+{% block content %}
+<h1 class="detail-title">{{ post.title }}</h1>
+
+<div class="detail-post-container">
+    <div class="detail-post-body">
+        <img src="{{ post.main_photo.url }}" alt="{{ post.title }}" class="detail-img"/>
+        <p class="detail-article-date">{{ post.Published_at }}</p>
+        <p class="detail-article-content">{{ post.content }}</p>
+    </div>
+    
+    <div class="button-container">
+        <a href="{% url 'main:post_update_view' post.id %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'main:post_delete_view' post.id %}" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Post Updated{% endblock %}
+
+{% block content %}
+<div class="success-message-container">
+    <h1>Post Updated Successfully!</h1>
+    <p>Your post has been updated.</p>
+    
+    <div class="button-container">
+        <a href="{% url 'main:main_view' %}" class="btn btn-secondary">Go to Home</a>
+    </div>
+</div>
+{% endblock %}

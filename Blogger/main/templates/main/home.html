@@ -25,10 +25,11 @@
     <div class="article-grid">
         {% for post in posts%}
         <div class="article-card">
-            <img src="{% static 'images/' %}{{post.main_photo}}" alt="Article Image" class="article-image">
+            <img src="{{post.main_photo.url}}" alt={{post.title}} class="article-image">
             <p class="article-date">{{post.Published_at}}</p>
-            <h3 class="article-title">{{post.title}}</h3>
-            <p class="article-description">{{post.content}}</p>
+            <a href="{% url 'main:post_detail_view' post.id %}"><h3 class="article-title">{{post.title}}</h3></a> <!-- need to modify the link color --> 
+            <!-- old code <p class="article-description">{{post.content}}</p> -->
+            
           </div>
           {% endfor%}
 
