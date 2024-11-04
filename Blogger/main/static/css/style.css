@@ -22,9 +22,9 @@ header {
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
-  }
-  
-  header video {
+}
+
+header video {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -37,14 +37,14 @@ header {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-  }
-  
-  header .container {
+}
+
+header .container {
     position: relative;
     z-index: 2;
-  }
-  
-  header .overlay {
+}
+
+header .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -52,7 +52,7 @@ header {
     width: 100%;
     opacity: 0.5;
     z-index: 1;
-  }
+}
 
 .lighttext {
     font-size: 1.3em;
@@ -66,11 +66,11 @@ header {
     color: rgb(233, 233, 233);
 }
 
-.lighttitle{
+.lighttitle {
     color: rgb(47, 47, 47);
 }
 
-.darktitle{
+.darktitle {
     color: rgb(233, 233, 233);
 }
 
@@ -101,7 +101,7 @@ header {
     font-size: 1.8em;
     transition: all 0.3s;
 }
- 
+
 .writeicon {
     background-color: rgba(255, 255, 255, 0.888);
     color: rgb(53, 53, 53);
