@@ -23,3 +23,16 @@ def post_detail_view(request:HttpRequest, post_id:int):
     post = Post.objects.get(pk=post_id)
 
     return render(request, 'posts/post_detail.html', {"post" : post})
+
+
+def post_update_view(request:HttpRequest, post_id:int):
+
+    post = Post.objects.get(pk=post_id)
+
+    if request.method == "POST":
+        post.title = request.POST["title"]
+        post.content = request.POST["content"]
+        post.published_at = request.POST["published_at"]
+        post.is_published = request.POST["is_published"]
+        if "poster" in request.FILES: post.poster = request.FILES["poster"]
+        post.save()
