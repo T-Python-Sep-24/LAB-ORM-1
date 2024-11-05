@@ -12,8 +12,15 @@
         <form action="{% url 'blog:new_post_view' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="text" placeholder="enter title" name="title" required>
+            <select name="category" >
+                <option selected value="other">other</option>
+                <option value="Technology">Technology</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Health & Fitness">Health & Fitness</option>
+                <option value="Education & Career">Education & Career</option>
+            </select>
             <textarea name="content" placeholder="content" required></textarea>
-            <input type="file" name="image" class="file">
+            <input type="file" name="image" class="file" required >
             <input type="submit" value="send post" class="btn">
         </form>
     </div>

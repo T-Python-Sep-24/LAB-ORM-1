@@ -13,3 +13,7 @@ def home_view(request:HttpRequest):
 
     return render(request,'main/index.html',{"blogs":blogs})
 # Create your views here.
+
+def error_view(request:HttpRequest):
+    
+    return render(request,'main/error.html')

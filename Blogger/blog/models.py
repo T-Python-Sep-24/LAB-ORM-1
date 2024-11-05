@@ -9,3 +9,4 @@ class Post(models.Model):
     is_published=models.BooleanField(default=True)
     published_at=models.DateTimeField(default=timezone.now)
     image=models.ImageField(upload_to="images/",default="images/default.jpg")
+    category=models.CharField(max_length=1048,default='other')

@@ -142,6 +142,12 @@ form input{
 form .file{
     color: white;
 }
+
+form select{
+    width: 437px;
+    
+    padding: 5px;
+}
 form textarea{
     padding-top: 4px;
     padding-left: 4px;
@@ -173,16 +179,24 @@ form .btn{
     width: 40%;
 }
 
-
+.top_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
 
 .bottom_row{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    gap: 3rem;
+    
 
 }
 .bottom_row a{
     color: orange;
+    text-decoration: none;
 }
 
 .blog_icons{
@@ -192,3 +206,13 @@ form .btn{
     align-items: center;
 }
 
+.prev_img img{
+    width: 150px;
+}
+
+.error{
+    
+    min-height: 80vh;
+    background-image: url('/static/images/error.webp');
+    background-size: contain;
+}
