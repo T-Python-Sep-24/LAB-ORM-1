@@ -13,11 +13,9 @@
             {% csrf_token %}
             <input type="text" placeholder="enter title" name="title" required>
             <select name="category" >
-                <option selected value="other">other</option>
-                <option value="Technology">Technology</option>
-                <option value="Lifestyle">Lifestyle</option>
-                <option value="Health & Fitness">Health & Fitness</option>
-                <option value="Education & Career">Education & Career</option>
+                {% for val,label in category %}
+                    <option value="{{val}}">{{label}}</option>
+                {% endfor %}
             </select>
             <textarea name="content" placeholder="content" required></textarea>
             <input type="file" name="image" class="file" required >

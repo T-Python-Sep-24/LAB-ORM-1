@@ -4,12 +4,13 @@ from django.core.exceptions import ObjectDoesNotExist
 from .models import Post
 # Create your views here.
 def new_post_view(request:HttpRequest,):
+    new_post=Post()
     if request.method=='POST':
         new_post=Post(title=request.POST['title'],content=request.POST['content'],image=request.FILES['image'],category=request.POST['category'])
         new_post.save()
         return redirect('main:home_view')
     
-    return render(request,'blog/blog.html')
+    return render(request,'blog/blog.html',context={'category':new_post.CategoryChoices.choices})
 
 
 def blog_content_view(request:HttpRequest,blog_id:int):
@@ -35,7 +36,7 @@ def blog_update_view(request:HttpRequest,blog_id:int):
             
             return redirect('blog:blog_content_view',blog_id=blog.id)
 
-        return render(request,'blog/update_blog.html',context={'blog':blog})
+        return render(request,'blog/update_blog.html',context={'blog':blog,'category':Post.CategoryChoices.choices})
     except Post.DoesNotExist:
         return redirect('main:error_view')
 

@@ -12,12 +12,11 @@
         <form action="{% url 'blog:blog_update_view' blog.id %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="text" placeholder="enter title" name="title" required value="{{blog.title}}">
+        
             <select name="category" >
-                <option {% if blog.category == 'other' %}selected{% endif %} value="other">other</option>
-                <option {% if blog.category == 'Technology' %}selected{% endif %} value="Technology">Technology</option>
-                <option {% if blog.category == 'Lifestyle' %}selected{% endif %} value="Lifestyle">Lifestyle</option>
-                <option {% if blog.category == 'Health & Fitness' %}selected{% endif %} value="Health & Fitness">Health & Fitness</option>
-                <option {% if blog.category == 'Education & Career' %}selected{% endif %} value="Education & Career">Education & Career</option>
+                {% for val,label in category %}
+                    <option {% if blog.category == val %}selected{% endif %} value="{{val}}" >{{label}}</option>
+                {% endfor %}
             </select>
             <textarea name="content" placeholder="content" required>{{blog.content}}</textarea>
             <div class="prev_img">
