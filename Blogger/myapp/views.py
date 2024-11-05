@@ -3,6 +3,9 @@ from django.utils import timezone
 from .models import post
 from django.urls import reverse
 from django.http import HttpRequest
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
+from django.core.exceptions import ObjectDoesNotExist
 
 def add_post_view(request):
     if request.method == 'POST':
@@ -44,10 +47,14 @@ def display_view(request):
     return render(request, 'myapp/display.html', context)
 
 def details_view(request, the_id:int):
+    try:
+        posts=post.objects.get(pk=the_id)
 
-    posts=post.objects.get(pk=the_id)
-
-    return render(request, 'myapp/details.html', {'post': posts})
+        return render(request, 'myapp/details.html', {'post': posts})
+    
+    except ObjectDoesNotExist:
+        
+        return HttpResponse(f"Post with ID {the_id} does not exist.")
 
 
 def update_view(request:HttpRequest, the_id:int):
@@ -68,7 +75,12 @@ def update_view(request:HttpRequest, the_id:int):
     return render(request, 'myapp/update.html', {'post': posts})
 
 def delete_view(request, the_id:int):
+    try:
+        posts=post.objects.get(pk=the_id)
+        posts.delete()
+        return redirect("myapp:display")
+    
+    except ObjectDoesNotExist:
+        
+        return HttpResponse(f"Post with ID {the_id} does not exist.")
 
-    posts=post.objects.get(pk=the_id)
-    posts.delete()
-    return redirect("myapp:display")
