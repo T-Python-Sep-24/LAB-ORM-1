@@ -30,9 +30,9 @@ header {
 
 header video {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
-    min-width: 100%;
+    max-width: 100%;
     min-height: 100%;
     width: auto;
     height: auto;
@@ -86,7 +86,7 @@ header .overlay {
     color: rgb(148, 93, 163);
 }
 
-.texthover:hover{ 
+.texthover:hover {
     color: rgb(151, 115, 183);
     transition: all 0.3s;
 }
@@ -132,48 +132,54 @@ header .overlay {
 }
 
 /* Styling category types */
-.generaltag{
-    background: rgba(105, 105, 105, 0.595);
+.tag {
+    background: rgba(105, 105, 105, 0.5);
     border: solid 5px dimgray;
 }
 
-.traveltag {
-    background: rgba(141, 81, 181, 0.397);
+.Generaltag {
+    background: rgba(220, 220, 220, 0.4);
+    border: solid 5px rgb(220, 220, 220);
+}
+
+.Traveltag {
+    background: rgba(141, 81, 181, 0.4);
     border: solid 5px rgb(163, 108, 207);
 }
 
-.sporttag {
-    background: rgba(81, 103, 181, 0.397);
+.Sporttag {
+    background: rgba(81, 103, 181, 0.4);
     border: solid 5px rgb(108, 134, 207);
 }
 
-.entertainmenttag {
-    background: rgba(253, 196, 116, 0.397);
+.Entertainmenttag {
+    background: rgba(253, 196, 116, 0.4);
     border: solid 5px rgb(233, 177, 122);
 }
 
-.technologytag {
-    background: rgba(83, 215, 217, 0.436);
+.Technologytag {
+    background: rgba(83, 215, 217, 0.4);
     border: solid 5px rgb(107, 226, 226);
 }
 
-.businesstag {
-    background: rgba(86, 181, 81, 0.397);
+.Businesstag {
+    background: rgba(86, 181, 81, 0.4);
     border: solid 5px rgb(108, 207, 108);
 }
 
-.culturetag {
-    background: rgba(181, 81, 133, 0.397);
+.Culturetag {
+    background: rgba(181, 81, 133, 0.4);
     border: solid 5px rgb(207, 108, 149);
 }
 
+.tag:hover,
 .generaltag:hover,
 .traveltag:hover,
 .sporttag:hover,
 .entertainmenttag:hover,
 .technologytag:hover,
 .businesstag:hover,
-.culturetag:hover{
+.culturetag:hover {
     transform: scale(1.1);
     transition: all 0.3s;
 }

@@ -19,7 +19,7 @@
                 <!-- Title -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control f-ubuntu" placeholder="Title.." name="title"
-                        id="floatingTitle" value="{{post.title}}">
+                        id="floatingTitle" value="{{post.title}}" minlength="2" maxlength="512">
                     <label for="floatingTitle" class="f-ubuntu">Title</label>
                 </div>
                 <!-- Content -->
@@ -32,8 +32,8 @@
                 <div class="form-floating mb-3"> 
                     <select class="form-select focus-ring focus-ring-secondary" id="floatingSelect" name="category" required>
                         <option selected disabled value="">Choose..</option>
-                        {% for category in categories %}
-                        <option {% if post.category == category %}selected{% endif %}>{{category}}</option>
+                        {% for value, label in categories %}
+                        <option {% if post.category == value %}selected{% endif %}>{{label}}</option>
                         {% endfor %}
                     </select>
                     <label for="floatingSelect">Category</label>
@@ -47,7 +47,7 @@
                         <div class="col-6">
                             <label for="formFile" class="form-label">Change picture</label>
                             <input class="form-control border-2 focus-ring focus-ring-secondary" type="file"
-                                name="picture" id="formFile" accept="images/*">
+                                name="picture" id="formFile" accept="image/*">
                         </div>
                     </div>
                 </div>
