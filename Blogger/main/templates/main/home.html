@@ -8,7 +8,7 @@
     <div class="post-item">
         <img src="{{ post.image.url }}" class="image">
         <a href="{% url 'main:detail_view' post.id %}"> <h3>{{ post.title }}</h3></a> 
-        <p>{{ post_detail.category }}</p>
+        <p>{{ post.category }}</p>
         <small>Published on: {{ post.published_at }}</small>
     </div>
     {% endfor %}
