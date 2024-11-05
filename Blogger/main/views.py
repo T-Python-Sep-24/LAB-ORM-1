@@ -10,10 +10,19 @@ def home_view(request: HttpRequest):
 
 
 def add_view(request: HttpRequest):
-    if request.method == "POST":
-        post = Post(title = request.POST["title"], content = request.POST["content"], is_published = bool(request.POST.get("is_published", False)), image = request.FILES["image"])
-        post.save()
+    try:
+        if request.method == "POST":
+            post = Post(
+                title = request.POST["title"], 
+                content = request.POST["content"], 
+                is_published = bool(request.POST.get("is_published", False)), 
+                image = request.FILES["image"],
+                category = request.POST["category"]
+            )
+            post.save()
 
+            return redirect("main:home_view")
+    except:
         return redirect("main:home_view")
 
     return render(request, "main/add.html")
@@ -43,6 +52,7 @@ def update_view(request: HttpRequest, post_id):
             post.title = request.POST["title"]
             post.content = request.POST["content"]
             post.is_published = request.POST["is_published"]
+            post.category = request.POST["category"]
             # check if he updated the image
             if "image" in request.FILES:
                 post.image = request.FILES["image"]
