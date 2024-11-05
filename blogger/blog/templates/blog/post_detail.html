@@ -1,0 +1,12 @@
+<h1>{{ post.title }}</h1>
+
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+{% endif %}
+
+<p>{{ post.content }}</p>
+<p>Category: {{ post.get_category_display }}</p>
+
+<a href="{% url 'blog:update_post' post.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'blog:delete_post' post.id %}" class="btn btn-danger">Delete</a> 
+<a href="{% url 'blog:base' %}" class="btn btn-secondary">Back to Home</a> 

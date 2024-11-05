@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+<form method="POST" action="{% url 'blog:update_post' post.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" value="{{ post.title }}" required>
+    <textarea name="content" required>{{ post.content }}</textarea>
+    <input type="file" name="image">
+    <select name="category">
+        <option value="Tech" {% if post.category == 'Tech' %}selected{% endif %}>Tech</option>
+        <option value="Life" {% if post.category == 'Life' %}selected{% endif %}>Life</option>
+        <option value="Food" {% if post.category == 'Food' %}selected{% endif %}>Food</option>
+        <option value="Travel" {% if post.category == 'Travel' %}selected{% endif %}>Travel</option>
+    </select>
+    <button type="submit" class="btn btn-info">Update</button>
+</form>
