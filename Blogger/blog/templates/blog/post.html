@@ -6,12 +6,25 @@
 <div class="container ">
     <div class="row justify-content-center">
         <div class="col-6">
-            <form class="d-flex flex-column gap-4" action="{% url 'blog:post_view'%}" method="post">
+            <form class="d-flex flex-column gap-4" action="{% url 'blog:post_view' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="text" placeholder="Title" name="title" class="form-control"required>
+                <input type="text" placeholder="Title" name="title" class="form-control" required>
                 <div class="mt-3"></div> 
-                <textarea placeholder="Content" name="content" class="form-control" rows="4"required></textarea>
-                <button type="submit" class="btn btn-primary mt-2"style="background-color: #CBD2A4; border-color: #CBD2A4">Submit</button>
+                <textarea placeholder="Content" name="content" class="form-control" rows="4" required></textarea>
+                <div class="mb-4"> 
+                    <label for="category" class="form-label">Select Category</label>
+                    <select class="form-select" name="category" id="category" required>
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="NAT">Nature</option>
+                        <option value="PHY">Physics</option>
+                        <option value="CHE">Chemistry</option>
+                        <option value="PLA">Plants</option>
+                        <option value="MTH">Mathematics</option>
+                        <option value="SCI">Science</option>
+                    </select>
+                </div>       
+                <input type="file" name="image" class="form-control"/>
+                <button type="submit" class="btn btn-primary mt-2" style="background-color: #CBD2A4; border-color: #CBD2A4">Submit</button>
             </form>
         </div>
     </div>

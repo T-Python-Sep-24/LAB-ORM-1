@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from blog.models import Blog
 
-def home_view(request:HttpRequest):
-
+def home_view(request: HttpRequest):
+    
     blog = Blog.objects.all()
-    return render(request, 'main/home.html',{"blog":blog})
+    return render(request, 'main/home.html', {"blog": blog})
+
 
 def search_view(request: HttpRequest):
     search_title = request.GET.get('title')

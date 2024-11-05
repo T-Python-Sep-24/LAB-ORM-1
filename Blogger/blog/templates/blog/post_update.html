@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+{% block title %}Update Post{% endblock %}
+
+{% block content %}
+<h1 class="text-center mt-4">Update Post: {{ post.title }}</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form class="d-flex flex-column gap-4" action="{% url 'blog:post_update_view' post.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ post.title }}" required>
+                
+                <textarea name="content" class="form-control" rows="4" placeholder="Content" required>{{ post.content }}</textarea>
+                
+                <div class="mb-4">
+                    <label for="category" class="form-label">Select Category</label>
+                    <select class="form-select" name="category" id="category" required>
+                        <option value="" disabled>Select Category</option>
+                        <option value="NAT" {% if post.category == "NAT" %}selected{% endif %}>Nature</option>
+                        <option value="PHY" {% if post.category == "PHY" %}selected{% endif %}>Physics</option>
+                        <option value="CHE" {% if post.category == "CHE" %}selected{% endif %}>Chemistry</option>
+                        <option value="PLA" {% if post.category == "PLA" %}selected{% endif %}>Plants</option>
+                        <option value="MTH" {% if post.category == "MTH" %}selected{% endif %}>Mathematics</option>
+                        <option value="SCI" {% if post.category == "SCI" %}selected{% endif %}>Science</option>
+                    </select>
+                </div>
+
+                <input type="file" name="image" class="form-control" />
+                
+                <button type="submit" class="btn btn-primary mt-2" style="background-color: #CBD2A4; border-color: #CBD2A4;">Update Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

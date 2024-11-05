@@ -84,4 +84,8 @@ footer {
     
     flex-grow: 1; 
 }
-
+.custom-button {
+    background-color: #CBD2A4;
+    border-color: #CBD2A4;
+    width: 200px;
+}
