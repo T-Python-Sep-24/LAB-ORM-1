@@ -13,7 +13,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=2048)
     content = models.TextField()
     is_published = models.BooleanField(default=True)
-    published_at = models.DateTimeField(default=datetime.now)
+    published_at = models.DateTimeField(auto_now=True)
     poster = models.ImageField(upload_to="images/", default="images/default.jpg")
     category = models.CharField(
         max_length=10,

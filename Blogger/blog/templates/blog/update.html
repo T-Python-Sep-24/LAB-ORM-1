@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="create_main">
-    <h1 class="phudu">Update {{blog.title}} blog</h1>
+    <h1 class="phudu">Update Blog: {{blog.title}}</h1>
 
     <form style="gap: 2rem; margin-bottom:1.5rem;" class="create_info update_blog" action="{% url 'blog:update_blog_view' blog.id %}" method="post" enctype="multipart/form-data">
         {% csrf_token %} 
@@ -39,9 +39,9 @@
         <div style="margin-top: 3rem;">
             <h3>Do You want to Re Publish it Now?</h3>
             YES
-            <input type="radio" name="ispublished" value="published"/>
+            <input type="radio" name="is_published" value="1" required/>
             NO
-            <input type="radio" name="ispublished" value="not_published"/>
+            <input type="radio" name="is_published" value="0" required/>
             {% if blog.is_published %}
                 <h5>Last published at {{ blog.published_at }}</h5>
             {% else %}
