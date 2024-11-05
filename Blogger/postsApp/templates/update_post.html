@@ -13,17 +13,24 @@
 
         <form action="{% url 'postsApp:update_post_view' post.id %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            <input class="post-title" type="text" name="title" placeholder="Post Title" value="{{post.title}}" required>
+            <input class="post-title" type="text" name="title" placeholder="Post Title" value="{{post.title}}">
+            <input class="post-title" type="text" name="published_by" placeholder="Post Publisher" value="{{post.published_by}}">
 
             <select class="post-title" name="category" required>
                 <option>Select Category</option>
-                <option value="portrait" {% if post.category == 'portrait' %} selected {% endif %}>portrait</option>
-                <option value="nature" {% if post.category == 'nature' %} selected {% endif %}>nature</option>
-                <option value="architecture" {% if post.category == 'portrait' %} selected {% endif %}>architecture</option>
-                <option value="animals" {% if post.category == 'animals' %} selected {% endif %}>animals</option>
-                <option value="plants" {% if post.category == 'plants' %} selected {% endif %}>plants</option>
-                <option value="objects" {% if post.category == 'objects' %} selected {% endif %}>objects</option>
+                {% for cat, catVal in  categories %}
+                <option value="{{ cat }}" {% if post.category == cat %} selected {% endif %}> {{catVal}} </option>
+                {% endfor %}
             </select>
+<!--            <select class="post-title" name="category" required>-->
+<!--                <option>Select Category</option>-->
+<!--                <option value="portrait" {% if post.category == 'portrait' %} selected {% endif %}>portrait</option>-->
+<!--                <option value="nature" {% if post.category == 'nature' %} selected {% endif %}>nature</option>-->
+<!--                <option value="architecture" {% if post.category == 'portrait' %} selected {% endif %}>architecture</option>-->
+<!--                <option value="animals" {% if post.category == 'animals' %} selected {% endif %}>animals</option>-->
+<!--                <option value="plants" {% if post.category == 'plants' %} selected {% endif %}>plants</option>-->
+<!--                <option value="objects" {% if post.category == 'objects' %} selected {% endif %}>objects</option>-->
+<!--            </select>-->
 
             <textarea class="post-content" name="content" placeholder="Enter Post description" required>{{post.content}}</textarea>
             <img src="{{post.post_img.url}}" width="20%">

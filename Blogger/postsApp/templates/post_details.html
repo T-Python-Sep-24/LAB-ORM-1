@@ -13,7 +13,7 @@
         <div class="data-cont">
             <h1 class="title">{{post.title}}</h1>
             <p class="desc">{{post.content}}</p>
-            <p class="desc">{{post.category}}</p>
+
 
         </div>
 
@@ -21,6 +21,7 @@
             <div class="actions">
                 <a class="link-btn action-btn" href="{% url 'postsApp:update_post_view' post.id %}">Edit</a>
                 <a class="link-btn action-btn" href="{% url 'postsApp:delete_post_view' post.id %}">Delete</a>
+                <a href="/" class="cat">#{{post.category}}</a>
             </div>
             <div class="publish">
                 <h3 class="date">{{post.published_at}}</h3>

@@ -161,7 +161,7 @@ form input, form textarea, form select{
     background-color: #ffffffbf;
     color: black;
     border-radius: 1rem;
-    width: 18rem;
+    width: 20rem;
     height: auto;
     margin: 2rem 3rem;
     box-shadow: 5px 6px 1rem 0rem black;
@@ -262,12 +262,26 @@ main h1 {
     display:flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items:center;
 }
 .actions{
 
     display: inline-flex;
     padding: 10px;
     align-self: end;
+
+}
+.actions .cat{
+    align-self: center;
+    font-size: 25px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: black;
+
+}
+.post-cat{
+    font-size: 25px;
+        text-transform: capitalize;
 }
 
 

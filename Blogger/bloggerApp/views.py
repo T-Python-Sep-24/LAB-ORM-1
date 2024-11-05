@@ -13,6 +13,6 @@ def main_view(request: HttpRequest):
     #     {"title": "f", "img": ".jpg", "decs": "post etc"},
     #     {"title": "f", "img": ".jpg", "decs": "post etc"},
     # ]
-    blogs = Post.objects.filter(is_published = True).order_by('-published_at')
+    blogs = Post.objects.all().order_by('-content')
     request = render(request, 'main.html', context={"blogs": blogs})
     return request

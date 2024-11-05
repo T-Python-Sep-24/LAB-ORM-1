@@ -40,11 +40,13 @@ def update_post_view(request: HttpRequest, post_id:int):
     if request.method == 'POST':
         post.title = request.POST['title']
         post.content = request.POST['content']
+        post.published_by = request.POST['published_by']
+        post.category = request.POST['category']
         if 'post_img' in request.FILES: post.post_img = request.FILES['post_img']
         post.save()
         return redirect('postsApp:post_details_view', post_id=post.id)
 
-    request = render(request, 'update_post.html', context={'post': post})
+    request = render(request, 'update_post.html', context={'post': post, 'categories': Post.CATEGORY_CHOICES.choices})
     return request
 
 def delete_post_view(request: HttpRequest, post_id: int):

@@ -3,16 +3,16 @@ from django.db import models
 # Create your models here.
 
 class Post(models.Model):
+    class CATEGORY_CHOICES(models.TextChoices):
 
-    CATEGORY_CHOICES = [
-        ('portrait', 'portrait'),
-        ('nature', 'nature'),
-        ('architecture', 'architecture'),
-        ('animals', 'animals'),
-        ('plants', 'plants'),
-        ('objects', 'objects'),
-        ('other', 'other'),
-    ]
+        portrait = 'portrait', 'Portrait'
+        nature = 'nature', 'Nature'
+        architecture = 'architecture', 'Architecture'
+        animals = 'animals', 'Animals'
+        plants = 'plants', 'Plants'
+        objects = 'objects', 'Objects'
+
+
 
     title = models.CharField(max_length=2048)
     content = models.TextField()
@@ -20,4 +20,4 @@ class Post(models.Model):
     published_at = models.DateTimeField(auto_now_add=True)
     published_by = models.CharField(default="Anonymous", max_length=1024)
     post_img = models.ImageField(upload_to="images/", default="images/default.jpg")
-    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default="other")
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES.choices, default="other")
