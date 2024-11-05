@@ -19,23 +19,26 @@
             <p class="amatic-sc-regular">"Selfcare" refers to the practice of taking an active role in protecting one's own well-being and happiness, particularly during times of stress. It encompasses a wide range of activities and practices aimed at enhancing physical, mental, and emotional health.</p>
         </section>
     </div>
+
     <h1 class="rochester-regular blog-head">Blogs</h1>
+
     <div class="blogs-container">
     <div class="display-blogs">
+
         {%for post in posts%}
         <div class="card">
             <img src="{{post.poster.url}}" />
             <div class="card-body">
-                <h4 class="amatic-sc-regular">publisher</h4>
                 <h1 class="rochester-regular">{{post.title}}</h1>
                 <p>{{post.content|truncatechars:100}}</p>
                 <div class="card-footer">
-                    <p> date: {{post.published_at}}</p>
+                    <p > date: {{post.published_at}}</p>
                     <a href="{% url 'posts:post_detail_view' post.id %}" class="rochester-regular">Read</a>
                 </div>   
             </div>
         </div>
         {%endfor%}
+
     </div>
 </div>
     {% endblock%}

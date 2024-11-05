@@ -16,32 +16,45 @@ def post_detail_view(request:HttpRequest,post_id:int):
     try:
         post =Post.objects.get(pk=post_id)
         return render(request,'posts/post_details.html',{"post":post})
-    except Post.DoesNotExist as e:
-        print(type(e).__name__)
+    except Post.DoesNotExist:
         return redirect('posts:notfound_view')
+    except Exception as e:
+        raise f"{e}: there is something wrong"
+
 
 def post_update_view(request:HttpRequest,post_id:int):
-    post =Post.objects.get(pk=post_id)
+    try:
+        post =Post.objects.get(pk=post_id)
 
-    if request.method=="POST":
-        post.title=request.POST['title']
-        post.content=request.POST['content']
-        post.published_at=request.POST["published_at"]
-        post.is_published=request.POST['is_published']
-        post.category=request.POST['category']
-        if "poster" in request.FILES: 
-            post.poster =request.FILES["poster"]
-        post.save()
+        if request.method=="POST":
+            post.title=request.POST['title']
+            post.content=request.POST['content']
+            post.published_at=request.POST["published_at"]
+            post.is_published=request.POST['is_published']
+            post.category=request.POST['category']
+            if "poster" in request.FILES: 
+                post.poster =request.FILES["poster"]
+            post.save()
 
-        return redirect("posts:post_detail_view",post_id=post.id)
+            return redirect("posts:post_detail_view",post_id=post.id)
 
-    return render(request,'posts/update_post.html',{"post":post})
+        return render(request,'posts/update_post.html',{"post":post})
+    
+    except Post.DoesNotExist:
+        return redirect('posts:notfound_view')
+    except Exception as e:
+        raise f"{e}: there is something wrong"
 
 def post_delete_view(request:HttpRequest,post_id:int):
-    post =Post.objects.get(pk=post_id)
-    post.delete()
+    try:
+        post =Post.objects.get(pk=post_id)
+        post.delete()
 
-    return redirect("main:home_page_view")
+        return redirect("main:home_page_view")
+    except Post.DoesNotExist:
+        return redirect('posts:notfound_view')
+    except Exception as e:
+        raise f"{e}: there is something wrong"
 
 
 def notfound_view(request:HttpRequest):

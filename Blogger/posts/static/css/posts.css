@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     height: 100%;
+   
 }
 
 .img-side{
@@ -13,6 +14,7 @@
 .img-side img{
     width: 100%;
     height: 100%;
+    border-radius: 10px 0 0 10px;
 }
 
 .form-side{
@@ -21,6 +23,7 @@
     width:110vh;
     row-gap: 1rem;
     margin: 2rem;
+    
 }
 
 .form-side h1{
@@ -34,3 +37,46 @@
     row-gap: 1rem;
     flex-grow: 1;
 }
+
+
+.postimg-container{
+    width: 100%; 
+    height: 50vh; 
+    overflow: hidden;
+}
+
+.postimg-container img{
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.postcontent-container strong{
+    border-left: 2px solid green;
+    height: 80px;
+    padding-left: 1rem;
+    font-weight: 400;
+
+}
+
+.postinfo-container{
+    row-gap: 1rem;
+}
+.postinfo-container h6{
+    font-size:0.8rem;
+    gap: 1rem;
+}
+
+.postinfo-container h6 span{
+    color: rgb(0, 71, 0);
+}
+
+.postinfo-container h6 span,i{
+    font-size: 1rem;
+}
+
+.postbuttons-container{
+    gap: 2rem;
+}
+

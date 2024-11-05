@@ -6,21 +6,42 @@
 {% endblock%}
 {% block title %}<title>Blog | Details</title>{% endblock%}
 {% block content %} 
-    <h1>{{post.title}}</h1>
-
-    <div class="col">
-        <div class="d-flex justify-content-between">
-            <h5>{{post.category}}</h5>
-            <h6>{{post.published_at}}</h6>
-        </div>
-        <img src="{{post.poster.url}}" class="w-100"/>
-        <p>{{post.content}}</p>
-        <div class="d-flex justify-content-end gap-2">
-            <a href="{%url 'posts:post_update_view' post.id%}" class="btn btn-success">Update</a>
+    
+    <div class="col d-flex flex-column justify-content-center">
+      <h1 class="mt-5 mb-4 rochester-regular ">{{post.title}}</h1>
+      <div class="postimg-container">
+        <img src="{{post.poster.url}}" />
+      </div>
+      
+        <div class="d-flex justify-content-between mt-3">
+          <div class="col-3 d-flex flex-column pt-2 postinfo-container justify-content-between justify-items-center">
             
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+            <div>
+            <h6 class="d-flex justify-content-start align-items-center">
+              {% if post.is_published %}
+                <i class="fa-solid fa-circle" style="color: green;"></i> Post Status: Published
+              {% else %}
+                <i class="fa-solid fa-circle" style="color: red;"></i> Post Status: Not Published
+              {% endif %}
+            </h6>
+            <h6 class="d-flex justify-content-start align-items-center"><span class="material-symbols-outlined">category</span> Post Category: {{post.category}}</h6>
+            <h6 class="d-flex justify-content-start align-items-center"><span class="material-symbols-outlined">today</span> Published At: {{post.published_at}}</h6>
+            </div>
+
+            <div class="d-flex justify-content-center flex-grow postbuttons-container mt-5 mb-3">
+              <a href="{%url 'posts:post_update_view' post.id%}" class="btn btn-success">Update</a>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+            </div>
+
+          </div>
+          <div class="postcontent-container mb-2">
+              <strong>{{post.content}}</strong>
+          </div>     
         </div>
+        
+
     </div>
+
     <!-- Button trigger modal -->  
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
