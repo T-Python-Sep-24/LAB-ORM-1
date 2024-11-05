@@ -6,44 +6,53 @@ from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.core.exceptions import ObjectDoesNotExist
+from .forms import PostForm
 
 def add_post_view(request):
+    post_form = PostForm()
     if request.method == 'POST':
-        title = request.POST.get('title')
-        content = request.POST.get('content')
-        is_published = 'is_published' in request.POST
-        published_at = request.POST.get('published_at') or timezone.now()
+        post_form = PostForm(request.POST)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('myapp:display')
+        else:
+            print("not valid form")
+        # title = request.POST.get('title')
+        # content = request.POST.get('content')
+        # is_published = 'is_published' in request.POST
+        # published_at = request.POST.get('published_at') or timezone.now()
 
 
-        new_post = post(
-            title=title,
-            content=content,
-            is_published=is_published,
-            published_at=published_at,
-        )
+    #     new_post = post(
+    #         title=title,
+    #         content=content,
+    #         is_published=is_published,
+    #         published_at=published_at,
+    #     )
 
-        if 'poster' in request.FILES:
-            new_post.poster = request.FILES.get('poster')
+    #     if 'poster' in request.FILES:
+    #         new_post.poster = request.FILES.get('poster')
 
-        new_post.save()
+    #     new_post.save()
 
 
-        return redirect('myapp:display')
+    #     return redirect('myapp:display')
 
-    context = {
-        'current_time': timezone.now().strftime('%Y-%m-%dT%H:%M')
-    }
-    return render(request, 'myapp/home.html', context)
+    # context = {
+    #     'current_time': timezone.now().strftime('%Y-%m-%dT%H:%M')
+    # }
+    return render(request, 'myapp/home.html', {"post_form":post_form})
 
 
 
 def display_view(request):
     
-    posts = post.objects.filter(is_published=True).order_by('-published_at')
+    posts = post.objects.filter(is_published=True).order_by('-published_at').filter(title__contains="t").all()[0:14]
 
     context = {
         'posts': posts
     }
+    
     return render(request, 'myapp/display.html', context)
 
 def details_view(request, the_id:int):
@@ -81,6 +90,13 @@ def delete_view(request, the_id:int):
         return redirect("myapp:display")
     
     except ObjectDoesNotExist:
-        
+
         return HttpResponse(f"Post with ID {the_id} does not exist.")
 
+def search_view(request:HttpRequest):
+    if "search" in request.GET and len(request.GET["search"]) >= 3:
+        posts = post.objects.filter(title__icontains=request.GET["search"]).order_by('-published_at')
+    else:
+        posts = []    
+
+    return render(request, 'myapp/search.html', {"posts": posts})
