@@ -22,7 +22,7 @@
 
 header {
     position: relative;
-    height: 75vh;
+    height: 70%;
     min-height: 25rem;
     width: 100%;
     overflow: hidden;
@@ -127,7 +127,7 @@ header .overlay {
 .arrowicondark:hover,
 .arrowiconlight:hover {
     color: rgb(151, 115, 183);
-    font-size: 3em;
+    font-size: 2.5em;
     transition: all 0.3s;
 }
 
@@ -172,14 +172,7 @@ header .overlay {
     border: solid 5px rgb(207, 108, 149);
 }
 
-.tag:hover,
-.generaltag:hover,
-.traveltag:hover,
-.sporttag:hover,
-.entertainmenttag:hover,
-.technologytag:hover,
-.businesstag:hover,
-.culturetag:hover {
+.hover:hover {
     transform: scale(1.1);
     transition: all 0.3s;
 }
@@ -211,7 +204,6 @@ header .overlay {
     stroke-width: 12;
     stroke-dasharray: 200 100;
 }
-
 
 .animate {
     -webkit-animation: swirls 2s linear infinite;

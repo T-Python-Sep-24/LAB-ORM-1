@@ -5,7 +5,6 @@
 
 {% block content %}
 
-
 <div class="container text-center">
     <h1
         class="f-ubuntu mt-5 mb-4 pt-5 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
@@ -13,24 +12,25 @@
     </h1>
     <div class="row justify-content-center">
         <div
-            class="col-md-10 f-ubuntu align-items-center justify-content-center gap-1 p-4 rounded-pill shadow text-bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
+            class="col-md-10 f-ubuntu align-items-center justify-content-center gap-1 p-2 rounded-pill shadow text-bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
             <div class="container justify-content-center">
-                <h5 class="lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}" >Filter by:</h5>
+                <h5
+                    class="lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
+                    Filter by:</h5>
             </div>
-            <div class="container justify-content-center gap-2">
+            <div class="d-flex flex-wrap justify-content-center gap-2 p-2">
                 {% for value, label in categories %}
-                <a href="{% url 'post:categoryFilterView' value %}" class="border-2 px-2 rounded-pill text-decoration-none tag small 
+                <a href="{% url 'post:categoryFilterView' value %}" class="border-2 px-2 rounded-pill text-decoration-none small tag hover
                 lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}
                 {% if value == selected %} {{label}}tag {% endif %}">{{label}}</a>
                 {% endfor %}
             </div>
         </div>
-
+        {% if posts %}
         {% for post in posts %}
         <div
             class="card col-md-10 rounded-5 shadow p-3 my-4 opacity-90 text-bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
             <div class="card-body f-ubuntu">
-
                 <h5 class="card-title">{{post.title}}</h5>
                 <!-- Change style based on the categoty -->
                 <p class="col-3 col-xxl-2 card-text small border-2 rounded-pill text-center 
@@ -53,6 +53,12 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div
+            class="col-md-6 rounded-5 shadow p-3 my-4 opacity-90 f-ubuntu text-bg-light {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
+            <h4>There are no posts under '{{selected}}' category..</h4>
+        </div>
+        {% endif %}
     </div>
 </div>
 
