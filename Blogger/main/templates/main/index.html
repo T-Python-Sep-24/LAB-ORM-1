@@ -1,13 +1,22 @@
 {% extends "main/base.html" %}
 {% load static %}
-{% block title %}Home | Blogger{% endblock %}
+{% block title %} Home | Blogger{% endblock %}
 {% block content %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
 <div class="text-center my-4">
     <h2>Welcome to Blogger!</h2>
     <p><b>Your platform for sharing stories, ideas, and inspiration.</b></p>
 </div>
 <hr />
-<h2>Our Posts</h2>
+
+<a href="{% url 'posts:all_posts_view' %}">
+    <div class="d-flex align-items-center justify-content-between ">
+    <h2 class="m-0 p-0">Latest Posts</h2>
+    <span class="material-symbols-outlined text-fxl">arrow_forward</span>
+    </div>
+    </a>
+
+
 <div class="row mt-5 row-cols-1 row-cols-md-3 g-4">
     {% for post in posts %}
         <div class="col">
@@ -20,4 +29,5 @@
         </div>
     {% endfor %}
 </div>
+
 {% endblock %}

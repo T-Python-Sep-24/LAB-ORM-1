@@ -4,6 +4,7 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 import logging
+from django.core.paginator import Paginator
 
 logger = logging.getLogger(__name__)
 
@@ -58,6 +59,28 @@ def post_delete_view(request:HttpRequest, post_id:int):
 
 def custom_404_view(request, exception):
     return render(request, "posts/404.html", status=404)
+
+
+def all_posts_view(request:HttpRequest):
+    #posts = Post.objects.filter(is_published__gte=3).order_by("-published_at")
+    #posts = Post.objects.filter(is_published__gte=True).exclude(title__contains="AI").order_by("-published_at")
+    #posts = Post.objects.all().order_by("-published_at")
+    #results count
+    #print(posts.count())
+    
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 10)  # Show 10 posts per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "posts/all_posts.html", {'page_obj': page_obj})
+
+
+
+
+
+
+
+
 
 
 
