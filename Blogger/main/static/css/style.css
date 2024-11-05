@@ -2,8 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
-    
+    padding: 0; 
 }
 
 nav {
@@ -29,7 +28,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .container {
@@ -43,7 +42,7 @@ header h1 {
     color: #333;
 }
 
-.post {
+.edit-home-page {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -51,9 +50,53 @@ header h1 {
     margin-bottom: 20px;
 }
 
-.post h2 {
+.edit-home-page h2 {
     margin-top: 0;
 }
+
+.edit-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-upd {
+background-color: #5cb85c;
+border: none;
+color: white;
+padding: 10px 20px;
+border-radius: 5px;
+margin-right: 10px;    
+}
+
+.btn-del {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+
+}
+.btn-upd:hover , .btn-del:hover {
+    opacity: 0.9;
+}
+
+
+.edit-update-page {
+    background-color: #cad1dc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+ .edit-update-image {
+    margin-top: 20px;
+    margin-bottom: 20px;
+   gap: 10px;
+} 
 
 footer {
     text-align: center;
@@ -63,4 +106,21 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+ .error-page {
+    text-align: center;
+    padding: 50px;
+    color: #d9534f;
+} 
+
+.error-page h1 {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #d9534f;
+}
+
+.error-page p {
+    font-size: 1.2em;
+    color: #333;
 }

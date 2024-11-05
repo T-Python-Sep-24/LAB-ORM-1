@@ -2,15 +2,23 @@
 
 {% block content %}
 <h1>Add a New Post</h1>
-<form action="{% url 'main:new_post_view'%}" method="post">
+<form action="{% url 'main:new_post_view'%}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" required><br><br>
     
+    <select name="category" style="padding: 10px;">
+        <option selected>Kind</option>
+        <option value="Sport">Sport</option>
+        <option value="Technology">Technology</option>
+        
+    </select>
+    <br><br>
     <label for="content">Content:</label><br>
     <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
 
-    
-    <input type="submit" value="Create Blog">
+    <input type="file" name="poster" required accept="images/*" style="padding: 10px;">
+    <br><br>
+    <input type="submit" value="Create Blog" style="padding: 10px;">
 </form>
 {% endblock %}

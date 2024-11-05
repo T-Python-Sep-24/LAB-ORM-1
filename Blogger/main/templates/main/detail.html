@@ -1,0 +1,22 @@
+{% extends 'main/control.html' %}
+
+{% block content %}
+<div class="edit-detail-page"></div>
+
+    <h1>Detali page </h1>
+    <h3>{{detali_blog.title }}</h3>
+    <br>
+    <img src="{{detail_blog.poster.url}}" height="150" width="150">
+    <br><br>
+    <div class="edit-btns">
+        <a href="{%url 'main:update_view' detail_blog.id %}"><button class="btn-upd">Update</button></a>
+        <a href="{%url 'main:delete_view' detail_blog.id %}"><button class="btn-del">Delete</button></a>
+    </div>
+    <br>
+    <p>{{ detail_blog.content }}</p>
+    <p><p>{{detali_blog.kind}}</p></p>
+    <h4>Published by :{{detail_blog.published_at }}</h4>
+    
+</div>
+
+{% endblock %}  

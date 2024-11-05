@@ -3,11 +3,13 @@
 {% block content %}
 
 <h1>Latest Posts</h1>
-{% for blog in view %}
-    <div class="post">
-        <h2>{{ blog.title }}</h2>
-        <p>{{ blog.content }}</p>
-        <h6>Published:{{blog.published_at }}</h6>
+{% for post in blogs %}
+    <div class="edit-home-page">
+         <img src="{{post.poster.url}}" height="150" width="150">
+         <a href="{% url 'main:detail_view' post.id %}"><h2> {{ post.title }}</h2></a>  
+        <p>{{ post.content }}</p>
+        <p>{{post.kind}}</p>
+        <h6>Published:{{post.published_at }}</h6>
     </div>
 
 {% endfor %}
