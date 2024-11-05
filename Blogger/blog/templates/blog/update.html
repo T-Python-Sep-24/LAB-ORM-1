@@ -6,27 +6,28 @@
     <h1>update {{post.title}} Post</h1>
     <form method="post" class="card" action="{% url 'blog:blog_update_view' post.id %}" enctype="multipart/form-data">
         {% csrf_token %}
-        
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title"  value="{{post.title}}"><br>
-        
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" >{{post.content}}</textarea><br>
-        
-        <label for="is_published">Publish:</label>
-        <input type="checkbox" id="is_published" name="is_published" value="{{post.is_published}}"><br>
+        <div class="update">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"  value="{{post.title}}"><br>
+            
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" >{{post.content}}</textarea><br>
+            
+            <label for="is_published">Publish:</label>
+            <input type="checkbox" id="is_published" name="is_published" value="{{post.is_published}}"><br>
 
-        <div class="cul-3">
-            <img src="{{post.poster.url}} " class="image" style="width: 100px;"/>
+            <div class="cul-3">
+                <img src="{{post.poster.url}} " class="image" style="width: 100px;"/>
 
+            </div>
+
+
+            <input type="file" name="poster" />
+            
+        
+
+            <button class="btu" type="submit">Save Post</button>
         </div>
-
-
-        <input type="file" name="poster" />
-        
-      
-
-        <button type="submit">Save Post</button>
     </form>
 {% endblock %}
 

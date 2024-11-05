@@ -9,7 +9,7 @@ from django.utils import timezone
 
 
 def home(request:HttpRequest):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-published_at')
     return render(request, 'blog/home.html', {'posts': posts})
 
 
@@ -21,10 +21,10 @@ def add_post(request: HttpRequest):
             content=request.POST["content"],
             is_published=True if request.POST.get("is_published") == "on" else False,
             published_at=request.POST.get("published_at", timezone.now()),
-            poster = request.FILES("poster"),
+            poster = request.FILES['poster'],
         )
         new_post.save()
-        return redirect('home')
+        return redirect('blog:home')
 
     return render(request, "blog/add_post.html" )
 
