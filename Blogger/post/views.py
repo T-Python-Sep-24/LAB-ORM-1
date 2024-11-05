@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest, Http404
+from django.http import HttpRequest
 from post.models import Post
 
 #New post page
@@ -18,14 +18,21 @@ def newPostView(request: HttpRequest):
 #Post details page
 def postDetailsView(request: HttpRequest, postid:int):
 
-    post = Post.objects.get(pk=postid)
+    try:
+        post = Post.objects.get(pk=postid)
+    except Exception:
+        return redirect('main:notFoundView')
 
     return render(request, 'post/postDetails.html', context={"post":post})
 
 #Update post page
 def updatePostView(request: HttpRequest, postid:int):
     #Update an existing post with user input
-    post = Post.objects.get(pk=postid)
+    try:
+        post = Post.objects.get(pk=postid)
+    except Exception:
+        return redirect('main:notFoundView')
+    
     categories = Post.CATEGORIES
     response = render(request, 'post/postUpdate.html', context={"post":post, "categories":categories})
     if request.method == "POST":
@@ -46,3 +53,4 @@ def deletePostView(request: HttpRequest, postid:int):
     post.delete()
     
     return redirect('main:homeView')
+

@@ -20,12 +20,7 @@ def modeView(request: HttpRequest, mode):
         
     return response
 
-#Handling 404 and 500
-def custom404(request, *args, **argv):
-    response = render(request, "404.html", status=404)
-    return response
 
-def custom500(request, *args, **argv):
-    response = render(request, "500.html", status=500)
-    return response
-
+#Handling wrong entry
+def notFoundView(request: HttpRequest):
+    return render(request, '404.html')
