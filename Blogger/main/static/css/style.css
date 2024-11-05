@@ -3,6 +3,11 @@ header {
     background-image: radial-gradient(#4455ff, #3377ff);
 }
 
+h1 {
+    font-weight: 600;
+}
+
+/*** main ***/
 .myhero-background-decoration {
     background-image: url('../images/Pngtree_background2.jpg');
     background-color: #d0e9ef;
@@ -11,7 +16,6 @@ header {
     background-position: top right;
     min-height: 50vh;
 }
-
 
 /*** hero section ***/
 .myhero-parent {
@@ -25,8 +29,10 @@ header {
     height: 50vh;
 }
 
-.myhero-background-container {
-    position: relative;
+.myhero-right-container {
+    /* this will fill up this right column space 
+    of this flex item. and help pushes the left column */
+    flex-grow: 1;
 }
 
 .myhero-content-decoration {
@@ -41,7 +47,6 @@ header {
 
 
 /*** footer ***/
-
 footer {
     background-image: radial-gradient(#4455ff, #3377ff);
 }
