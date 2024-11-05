@@ -3,8 +3,8 @@
 
 
 {% block content %}
-    <h2>Add New Post</h2>
-    <form method="post" class="card" action="" enctype="multipart/form-data">
+    <h2 style="margin-left: 50px;">Add New Post</h2>
+    <form class="card" method="post"  action="" enctype="multipart/form-data">
         {% csrf_token %}
         
         <label for="title">Title:</label>
@@ -15,6 +15,14 @@
         
         <label for="is_published">Publish:</label>
         <input type="checkbox" id="is_published" name="is_published"><br>
+
+        <label for="category">Category:</label>
+        <select class="all-option" id="category" name="category" required>
+            <option value="Philosophy">Philosophy</option>
+            <option value="Medicine">Medicine</option>
+            <option value="Science">Scientists</option>
+            <option value="Fictional">Fictional Characters</option>
+        </select><br>
 
         <input type="file" name="poster" />
         

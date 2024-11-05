@@ -5,6 +5,7 @@
     <div class="all-d-u">    
         <img src="{{post.poster.url}} " class="image-detail"/>
         <h1 style="color: rgb(49, 32, 11); ">{{post.title}}</h1>
+        <p>Category: {{ post.category }}</p> 
         <p>{{post.content}}</p>
 
         <a class="btu" href="{% url 'blog:blog_update_view' post.id %}"> Update</a>

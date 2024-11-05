@@ -129,14 +129,15 @@ header{
     background-color: rgba(51, 37, 19, 0.664); 
 }
 
-
+/* form */
 .card{
+
     max-width: 500px;
     margin: 20px;
     padding: 20px;
     background-color: rgba(116, 89, 50, 0.555);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px black
 }
 
 
@@ -144,6 +145,51 @@ form.card label{
     display: flex;
     font-weight: bold;
     color: #fdfbf0;
+    margin-bottom: 5px;
+
+}
+.card input[type="text"],.card textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.card input[type="file"] {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+}
 
 
+
+
+/* option */
+
+.category-label {
+    display: flex;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    color: #fdfbf0;
+}
+
+.all-option {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.all-option:focus {
+    border-color: #007BFF;
+    outline: none;
 }

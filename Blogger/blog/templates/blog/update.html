@@ -3,7 +3,7 @@
 
 
 {% block content %}
-    <h1>update {{post.title}} Post</h1>
+    <h1 style="margin-left: 50px;">update {{post.title}} Post</h1>
     <form method="post" class="card" action="{% url 'blog:blog_update_view' post.id %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="update">
@@ -15,6 +15,14 @@
             
             <label for="is_published">Publish:</label>
             <input type="checkbox" id="is_published" name="is_published" value="{{post.is_published}}"><br>
+
+            <label for="category">Category:</label>
+            <select class="all-option" id="category" name="category" required>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Science">Scientists</option>
+                <option value="Fictional">Fictional Characters</option>
+            </select><br>
 
             <div class="cul-3">
                 <img src="{{post.poster.url}} " class="image" style="width: 100px;"/>

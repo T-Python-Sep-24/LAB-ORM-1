@@ -22,6 +22,7 @@ def add_post(request: HttpRequest):
             is_published=True if request.POST.get("is_published") == "on" else False,
             published_at=request.POST.get("published_at", timezone.now()),
             poster = request.FILES['poster'],
+             category=request.POST["category"],
         )
         new_post.save()
         return redirect('blog:home')
@@ -40,6 +41,7 @@ def blog_update_view(request: HttpRequest, blog_id:int):
         post.content = request.POST["content"]
         post.is_published = True if request.POST.get("is_published") == "on" else False
         post.published_at = request.POST.get("published_at", timezone.now())
+        post.category=request.POST["category"]
         if "poster" in request.FILES: post.poster=request.FILES["poster"]
         post.save()
         return redirect("blog:blog_detail_view", blog_id=post.id)

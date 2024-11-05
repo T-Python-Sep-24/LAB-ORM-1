@@ -8,7 +8,10 @@
             <img src="{{post.poster.url}} " class="image" style="width: 100px; height: 100px;"/>
             <a href="{% url 'blog:blog_detail_view' post.id %}"><h3>{{ post.title }}</h3></a>
             <!--<p>{{ post.content }}</p>-->
-            <small>Published at: {{ post.published_at }}</small>
+            <p>Category: {{ post.category }}</p> 
+            <small>Published at:  {{ post.published_at }}</small>
+           
+
         </div>
     {% empty %}
         <p>No posts available.</p>
