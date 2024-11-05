@@ -86,6 +86,11 @@ header .overlay {
     color: rgb(148, 93, 163);
 }
 
+.texthover:hover{ 
+    color: rgb(151, 115, 183);
+    transition: all 0.3s;
+}
+
 .linkHover:hover {
     color: rgb(151, 115, 183);
     font-size: 1.5em;
@@ -119,8 +124,15 @@ header .overlay {
     color: rgb(233, 233, 233);
 }
 
+.arrowicondark:hover,
+.arrowiconlight:hover {
+    color: rgb(151, 115, 183);
+    font-size: 3em;
+    transition: all 0.3s;
+}
+
 /* Styling category types */
-.generaltag {
+.generaltag{
     background: rgba(105, 105, 105, 0.595);
     border: solid 5px dimgray;
 }
@@ -153,6 +165,17 @@ header .overlay {
 .culturetag {
     background: rgba(181, 81, 133, 0.397);
     border: solid 5px rgb(207, 108, 149);
+}
+
+.generaltag:hover,
+.traveltag:hover,
+.sporttag:hover,
+.entertainmenttag:hover,
+.technologytag:hover,
+.businesstag:hover,
+.culturetag:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
 }
 
 /* Animation */

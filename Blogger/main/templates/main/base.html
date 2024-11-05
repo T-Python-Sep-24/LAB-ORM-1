@@ -49,7 +49,7 @@
                 <div class="f-ubuntu d-flex align-items-center justify-content-center gap-1">
                     <a href="{% url 'main:modeView' 'light' %}?next={{request.path}}" ><span
                         class="material-symbols-outlined rounded-pill p-1 logohover {% if 'mode' not in request.COOKIES or 'mode' in request.COOKIES and request.COOKIES.mode != 'dark' %} activeiconlight {% else %} darktext {% endif %}">light_mode</span></a>
-                <a href="{% url 'main:modeView' 'dark' %}?next={{request.path}}"><span
+                    <a href="{% url 'main:modeView' 'dark' %}?next={{request.path}}"><span
                         class="material-symbols-outlined rounded-pill p-1 logohover {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} activeicondark {% else %} lighttext {% endif %}">dark_mode</span></a>
                 </div>
             </div>

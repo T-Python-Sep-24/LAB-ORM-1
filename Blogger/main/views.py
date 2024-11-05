@@ -5,7 +5,7 @@ from post.models import Post
 #Home page
 def homeView(request: HttpRequest):
     #Get the list of posts
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by("-publishedAt")[0:3]
 
     return render(request, 'main/home.html', context={'posts': posts})
 
@@ -23,4 +23,5 @@ def modeView(request: HttpRequest, mode):
 
 #Handling wrong entry
 def notFoundView(request: HttpRequest):
+    
     return render(request, '404.html')

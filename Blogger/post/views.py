@@ -5,7 +5,7 @@ from post.models import Post
 #New post page
 def newPostView(request: HttpRequest):
     #Create a new post with user input
-    categories=Post.CATEGORIES
+    categories=Post.Categories.choices
     response = render(request, 'post/postCreate.html', context={'categories':categories})
     if request.method == "POST":
         post = Post(title=request.POST["title"], content=request.POST["content"], category=request.POST["category"])
@@ -17,7 +17,7 @@ def newPostView(request: HttpRequest):
 
 #Post details page
 def postDetailsView(request: HttpRequest, postid:int):
-
+    #Check if the ID is valid or display a 404
     try:
         post = Post.objects.get(pk=postid)
     except Exception:
@@ -27,14 +27,17 @@ def postDetailsView(request: HttpRequest, postid:int):
 
 #Update post page
 def updatePostView(request: HttpRequest, postid:int):
-    #Update an existing post with user input
+
+    #Update an existing post with user input, display 404 if invalid id entered in url
     try:
         post = Post.objects.get(pk=postid)
     except Exception:
         return redirect('main:notFoundView')
     
-    categories = Post.CATEGORIES
+    #Get the category choices and send it in context
+    categories = Post.Categories.choices
     response = render(request, 'post/postUpdate.html', context={"post":post, "categories":categories})
+
     if request.method == "POST":
         post.title = request.POST["title"]
         post.content = request.POST["content"]
@@ -48,9 +51,26 @@ def updatePostView(request: HttpRequest, postid:int):
 
 #Delete post page
 def deletePostView(request: HttpRequest, postid:int):
+
     #Delete an existing post
     post = Post.objects.get(pk=postid)
     post.delete()
     
     return redirect('main:homeView')
+
+#Filter by category
+def categoryFilterView(request: HttpRequest, category):
+
+    posts = Post.objects.filter(category=category)
+    response = render(request, 'post/allPosts.html', context={'posts': posts, 'categories': Post.Categories.choices, 'selected': category})
+    return response
+
+#Display all posts page
+def allView(request: HttpRequest):
+    
+    categories = Post.Categories.choices
+    #Get the list of posts
+    posts = Post.objects.all().order_by("-publishedAt")[0:3]
+
+    return render(request, 'post/allPosts.html', context={'posts': posts, 'categories': categories})
 

@@ -23,21 +23,26 @@
 
 <div
     class="container-lg text-start lighttitle {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} darktitle {% endif %}">
-    <div class="f-ubuntu d-flex flex-row justify-content-between">
-        <a href="" class="text-decoration-none h1 ms-3">Blog:</a>
-        <a href="" class="text-decoration-none material-symbols-outlined rounded-pill me-5 align-self-center arrowiconlight {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} arrowicondark {% endif %}">arrow_forward</a>
-    </div>
-    <!-- Using column reverse to display latest posts first -->
-    <div class="d-flex flex-column-reverse justify-content-start">
-        {% for post in posts %}
-        <div class="my-4">
-            <div
-                class="card rounded-5 shadow p-3 text-bg-light opacity-90 {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
-                <div class="card-body f-ubuntu">
 
-                    <h5 class="card-title">{{post.title}}</h5>
-                    <!-- Change style based on the categoty -->
-                    <p class="col-2 col-xxl-1 card-text small border-2 rounded-pill text-center 
+    <div class="row row-cols-1 justify-content-center">
+        <div class="col-10">
+            <div class="f-ubuntu d-flex flex-row justify-content-between">
+                <a href="{% url 'post:allView' %}" class="text-decoration-none ms-2 h1 texthover">Blog:</a>
+                <a href="{% url 'post:allView' %}"
+                    class="text-decoration-none material-symbols-outlined rounded-pill me-4 align-self-center arrowiconlight {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} arrowicondark {% endif %}">arrow_forward</a>
+            </div>
+        </div>
+        <!-- Using column reverse to display latest posts first -->
+        <div class="col-10 justify-content-start">
+            {% for post in posts %}
+            <div class="my-4">
+                <div
+                    class="card rounded-5 shadow p-3 text-bg-light opacity-90 {% if 'mode' in request.COOKIES and request.COOKIES.mode == 'dark' %} text-bg-dark {% endif %}">
+                    <div class="card-body f-ubuntu">
+
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <!-- Change style based on the categoty -->
+                        <p class="col-3 col-xxl-2 card-text small border-2 rounded-pill text-center 
                             {% if post.category == 'General' %} generaltag
                             {% elif post.category == 'Travel' %} traveltag
                             {% elif post.category == 'Sport' %} sporttag
@@ -45,19 +50,20 @@
                             {% elif post.category == 'Technology' %} technologytag
                             {% elif post.category == 'Business' %} businesstag
                             {% elif post.category == 'Culture' %} culturetag {% endif %}">
-                        {{post.category}}
-                    </p>
-                    <p class="card-text lead">{{post.content}}</p>
-                    <p class="card-text small">{{post.publishedAt}}</p>
-                    <img src="{{post.picture.url}}" class="card-img-bottom" alt="post image">
-                    <div class="d-flex flex-row-reverse px-3">
-                        <a href="{% url 'post:postDetailsView' post.id %}"
-                            class="row btn shadow rounded-pill bg-black text-white mt-4">More</a>
+                            {{post.category}}
+                        </p>
+                        <p class="card-text lead">{{post.content}}</p>
+                        <p class="card-text small">{{post.publishedAt}}</p>
+                        <img src="{{post.picture.url}}" class="card-img-bottom" alt="post image">
+                        <div class="d-flex flex-row-reverse px-3">
+                            <a href="{% url 'post:postDetailsView' post.id %}"
+                                class="row btn shadow rounded-pill bg-black text-white mt-4">More</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 
