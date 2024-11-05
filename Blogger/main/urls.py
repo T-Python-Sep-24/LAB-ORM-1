@@ -12,4 +12,6 @@ urlpatterns = [
     path("delete/<post_id>/", views.post_delete_view, name="post_delete_view"),
     path("published/", views.post_published_view, name="post_published_view"),
     path("updated_success//<post_id>/", views.post_success_updated_view, name="post_success_updated_view"),
+    path("all/", views.post_all_view, name="post_all_view"),
+    path("search/", views.search_post_view, name="search_post_view"),
 ]

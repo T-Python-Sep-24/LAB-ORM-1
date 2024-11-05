@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}All Articles{%endblock %}
+
+{% block content %}
+<div><h1 class="all-articale-page">All Articles</h1></div>
+<div class="article-grid-all">
+    {% for post in posts%}
+    <div class="article-card-all">
+        <img src="{{post.main_photo.url}}" alt={{post.title}} class="article-image-all">
+        <div class="all-articale-container">
+            <p class="article-date-all">{{post.published_at}}</p>
+            <p class="article-category-all" >{{post.get_category_display}}</p>
+        </div>
+        <a href="{% url 'main:post_detail_view' post.id %}"><h3 class="article-title-all">{{post.title}}</h3></a>  
+        <!-- old code <p class="article-description">{{post.content}}</p> -->
+        
+    </div>
+    {% endfor%}
+
+
+</div>
+
+{% endblock %}
+

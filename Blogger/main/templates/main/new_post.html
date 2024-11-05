@@ -13,17 +13,17 @@
   <form class="form" action="{% url 'main:new_posts_view'%}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" class="form-input" />
+    <input type="text" id="title" name="title" class="form-input" required minlength="5" />
     <label for="main-photo">Main Photo:</label>
 
     <div class="file-upload">
-      <input type="file" id="main_photo" name="main_photo" class="file-input" accept="images/*"/> <!-- exaption to only exapt image(search more) -->
+      <input type="file" id="main_photo" name="main_photo" class="file-input" required accept=".png, .jpg, .jpeg"/> <!-- to accept all types of images "image/*" -->
       <span class="material-symbols-outlined upload-icon">upload</span>
     </div>
 
     <div>
       <label for="category">Category:</label>
-        <select name="category" id="category" class="form-input">
+        <select name="category" id="category" class="form-input" required>
           <option value="TECH">Technology</option>
           <option value="BUS">Business</option>
           <option value="LIFE">Lifestyle</option>
@@ -34,7 +34,7 @@
     </div>
 
     <label for="content">Content:</label>
-    <textarea id="content" name="content" class="form-textarea"></textarea>
+    <textarea id="content" name="content" class="form-textarea" minlength="5" maxlength="500"></textarea>
 
     <button type="submit" class="submit-button">Publish</button>  <!-- After Sub Show new page or send the user to home -->
   </form>

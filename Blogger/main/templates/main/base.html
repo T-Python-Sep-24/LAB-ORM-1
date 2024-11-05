@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300..900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Phudu:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward"  />
   </head>
   <body>
     <!-- Header -->
@@ -28,6 +29,9 @@
 
       <nav class="nav-last">
         <a href="{% url 'main:new_posts_view'%}" class="new-post-button">New Post</a>
+        <form action="{% url 'main:search_post_view' %}" method="get" class="search-form">
+          <input type="search" name="search" placeholder="Search articles..." value="{{request.GET.search}}" aria-label="Search" required minlength="3" />
+        </form>
         <a href="#"><span class="material-symbols-outlined">Person</span></a>
       </nav>
     </header>
