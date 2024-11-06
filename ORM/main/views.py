@@ -1,15 +1,7 @@
 from django.shortcuts import render
-from .models import Main
+from blogs.models import Blog
 
-def view_home(request):
-    return render(request, 'main/blog.html')
-
-def create_blog(request):
-    if request.method == "POST":
-        new_blog = Main(
-            title=request.POST["title"],
-            content=request.POST["content"]
-        )
-        new_blog.save()
-
-    return render(request, 'main/create.html')
+def home_view(request):
+    # Get all blogs
+    blogs = Blog.objects.all()
+    return render(request, 'main/blog.html', {"blogs": blogs})

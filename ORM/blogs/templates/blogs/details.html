@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<h1>hdy there</h1>
+{{blog.title}}
+<img class="w-full" src="{{blog.poster.url}}">
+<p class="text-sm text-gray-500 mb-3">
+    <span class="font-semibold">Published on:</span> {{ blog.published_at}}
+</p>
+
+<p class="text-gray-700 text-base mb-4">
+{{ blog.content}}
+</p>
+<a  class=" bg-blue-500 text-black py-2 px-4 rounded-lg hover:bg-blue-600" href="{% url 'blogs:update' blog.id %}">Update Blog
+</a> 
+<a  class=" bg-red-500 text-black py-2 px-4 rounded-lg hover:bg-red-700" href="{% url 'blogs:delete' blog.id %}"> delete Blog
+</a>
+
+
+{% endblock %}

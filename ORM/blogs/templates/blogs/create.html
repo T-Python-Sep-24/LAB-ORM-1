@@ -4,23 +4,24 @@
 <div class="max-w-md mx-auto mt-8 bg-white shadow rounded-lg p-6">
     <h2 class="text-xl font-semibold text-center mb-4">Create Blog Post</h2>
     
-    <form action="{% url 'main:create' %}" method="post" class="space-y-4">
+    <form action="{% url 'blogs:create' %}" method="post" class="space-y-4" enctype="multipart/form-data">
         {% csrf_token %}
         
         <input 
             type="text" 
             name="title" 
-            placeholder="Title" 
             class="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500"
             required
         />
 
         <textarea 
             name="content" 
-            placeholder="Content" 
             class="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 h-24 resize-none"
             required
         ></textarea>
+        <input type="checkbox" name="is_published" value="True">
+        <input type="time" name="published_at" />
+        <input type="file" name="poster" class="form-control"/>
 
         <button 
             type="submit" 

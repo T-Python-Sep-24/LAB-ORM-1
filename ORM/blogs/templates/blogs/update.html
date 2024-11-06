@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto mt-8 bg-white shadow rounded-lg p-6">
+    <h2 class="text-xl font-semibold text-center mb-4">Create Blog Post</h2>
+    
+    <form action="{% url 'blogs:update' blog.id %}" method="post" class="space-y-4" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <input 
+            type="text" 
+            name="title" 
+            class="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500"
+            value="{{blog.title}}"
+        />
+
+        <textarea 
+            name="content" 
+            class="w-full border border-gray-300 rounded p-2 focus:ring-2 focus:ring-blue-500 h-24 resize-none"
+            
+        >{{blog.content}} </textarea>
+        <input type="checkbox" name="is_published" value="{{blog.is_published}}">
+        <input type="datetime-local" name="published_at" value="{{blog.published_at}}" />
+        <input type="file" name="poster" class="form-control"value="{{blog.poster}}"  />
+
+        <button 
+            type="submit" 
+            value="update"
+            class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 focus:ring-2 focus:ring-blue-500">
+            Submit
+        </button>
+    </form>
+</div>
+{% endblock %}
