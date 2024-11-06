@@ -5,7 +5,7 @@ from post.models import Post
 #Home page
 def homeView(request: HttpRequest):
     #Get the list of posts
-    posts = Post.objects.all().order_by("-publishedAt")[0:3]
+    posts = Post.objects.all().order_by("-publishedAt")[0:2]
 
     return render(request, 'main/home.html', context={'posts': posts})
 
