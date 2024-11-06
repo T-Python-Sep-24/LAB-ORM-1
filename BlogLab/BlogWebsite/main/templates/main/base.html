@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Blogger</title>
     <style>
      
@@ -12,16 +17,30 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+             
+
         }
         main {
             flex: 1;
         }
 
+.blog-card img 
+{
+transition: 0.3s;
+}
+        .blog-card:hover img {
+        transform: scale(1.5) rotate(10deg);
+        
+        }
+
+.font {
+ font-family: "Playfair Display", serif;
+}
         
     </style>
 </head>
-<body class="bg-gray-100">
-    <header class="bg-blue-600 p-4">
+<body class="bg-white">
+    <header  class="p-5 bg-gradient-to-r from-sky-600 to-sky-900 text-white flex items-center justify-between">
         <img src="{% static 'images/blog.icon.png' %}"  class=" w-15 h-20 mr-40"/>
         
         <!--<h1 class="text-white text-3xl">Blogger</h1>!-->
@@ -29,25 +48,24 @@
           
             <a href="{% url 'main:home_view' %}" class="text-white mr-4">Home</a>
             <a href="{% url 'main:addPost_view' %}" class="text-white mr-4 ">Add Post</a>
-            <a href="{% url 'main:DetailPage_view' %}" class="text-white mr-4">Detail page</a>
+          
         </nav>
     </header>
+    <main class="container mx-auto p-4">
     {% block content %}
-    <main class="container mx-auto p-4  ">
-        <div class="flex flex-col md:flex-row items-center mb-8">
-            <div class="md:w-1/2">
-                <img src="{% static 'images/wordpress themes for blogs_.png' %}" alt="Hero Image" class="w-full h-90 rounded-lg" />
-            </div>
-            <div class="md:w-1/2 md:pl-8">
-                <p class="mb-4 text-lg">Join us in sharing your insights, experiences, and creativity with a vibrant community of readers and writers.</p>
-                <p class="text-xl font-bold">Your voice matters—start your blogging journey today!</p>
-            </div>
-        </div>
+
     {% endblock %}
     </main>
     
-    <footer class="bg-blue-600 p-4 text-center text-white">
+    <footer class="mt-5 p-4 text-center text-white bg-gradient-to-r from-sky-600 to-sky-900">
         &copy; Author by Marwah Al-Ahmed 2024 Blogger
     </footer>
 </body>
+
+<script type="application/javascript">
+    import { initFlowbite } from 'flowbite'
+    
+    // initialize components based on data attribute selectors
+    initFlowbite();
+    </script>
 </html>

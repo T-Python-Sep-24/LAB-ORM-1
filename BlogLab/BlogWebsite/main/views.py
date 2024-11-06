@@ -12,8 +12,9 @@ def addPost_view (request : HttpRequest):
     if request.method == 'POST':
         title = request.POST['title']
         content = request.POST['content']
-        image = request.FILES.get('image')  
-        post = Post(title=title, content=content, published_at=timezone.now(),image=request.FILES["image"])
+        image = request.FILES.get('image') 
+        category=request.POST.get(' category') 
+        post = Post(title=title, content=content, published_at=timezone.now(),image=request.FILES["image"] ,category=cat) 
         post.save()
         return redirect('main:home_view')  
     return render(request, 'main/addPost.html')

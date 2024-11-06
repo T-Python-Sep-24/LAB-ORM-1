@@ -10,12 +10,13 @@ class Post(models.Model):
         HEALTH = 'Hlth', 'Health'
         BUSINESS = 'Biz', 'Business'
         ENTERTAINMENT = 'Ent', 'Entertainment'
+        
     title = models.CharField(max_length=2048)
     content = models.TextField()
     is_published = models.BooleanField(default=True)
     published_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='images/',default='images/ai-education.webp') 
-    category = models.CharField(max_length=4, choices=Category.choices, default=Category.TECHNOLOGY)
+    category = models.CharField(max_length=64, choices=Category.choices, default=Category.TECHNOLOGY)
 
     def __str__(self):
         return self.title

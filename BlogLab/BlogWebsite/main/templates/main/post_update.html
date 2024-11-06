@@ -12,6 +12,7 @@
             <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
             <textarea name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md" required>{{ post.content }}</textarea>
         </div>
+
         <div class="mb-4">
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
             <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md" accept="image/*">
@@ -21,6 +22,14 @@
                 </div>
             </div>
         </div>
+        <div class="mb-4">
+            <!-- <label for="image" class="block text-sm font-medium text-gray-700"></label>
+            <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md" accept="image/*">
+            <div class="col-3">
+                <img src="{{post.image.url}}" class="w-100"/>
+            </div> -->
+
+
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update Post</button>
     </form>
 {% endblock %}

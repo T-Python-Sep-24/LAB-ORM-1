@@ -2,20 +2,39 @@
 
 {% block content %}
     <h2 class="text-2xl font-bold mb-4">Add New Post</h2>
-    <form action="{% url 'main:addPost_view' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'main:addPost_view' %}" method="post" enctype="multipart/form-data" class="space-y-4">
         {% csrf_token %}
-        <div class="mb-4">
+        <div>
             <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-            <input type="text" name="title" id="title" class="mt-1 block w-full border-gray-300 rounded-md" required>
+            <input type="text" name="title" id="title" 
+                   class="mt-1 block w-full border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200" 
+                   required>
         </div>
-        <div class="mb-4">
+        <div>
             <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
-            <textarea name="content" id="content" class="mt-1 block w-full border-gray-300 rounded-md" required></textarea>
+            <textarea name="content" id="content" 
+                      class="mt-1 block w-full border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200" 
+                      required></textarea>
         </div>
-        <div class="mb-4">
+        <div>
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
-            <input type="file" name="image" id="image" class="mt-1 block w-full border-gray-300 rounded-md" accept="image/*">
+            <input type="file" name="image" id="image" 
+                   class="mt-1 block w-full border border-gray-300 rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200" 
+                   accept="image/*">
         </div>
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Add Post</button>
+        <select name="category">
+            <option value="Tech" {% if post.category == 'Tech' %}selected{% endif %}>Technology</option>
+            <option value="Life" {% if post.category == 'Life' %}selected{% endif %}>Lifestyle </option>
+            <option value="Edu" {% if post.category == 'Edu' %}selected{% endif %}>Education</option>
+            <option value="Hlth" {% if post.category == 'Hlth' %}selected{% endif %}>Health</option>
+            <option value="Biz" {% if post.category == 'Biz' %}selected{% endif %}>Business</option>
+            <option value="Ent" {% if post.category == 'Ent' %}selected{% endif %}>Entertainment</option>
+
+            </select>
+        <button type="submit" class="bg-gradient-to-r from-sky-600 to-sky-900 text-white px-4 py-2 rounded transition duration-200 hover:from-sky-700 hover:to-sky-800">
+            Add Post
+        </button>
     </form>
 {% endblock %}
+
+<!-- conform this page to tailwind css , it's in bootstrap  , also check in the shole project -->
