@@ -39,6 +39,7 @@
 }
 
 
+
 .postimg-container{
     width: 100%; 
     height: 50vh; 
@@ -51,6 +52,11 @@
     object-fit: cover;
     border-radius: 10px;
 }
+
+.post-info-content-container{
+    column-gap: 4rem;
+}
+
 
 .postcontent-container strong{
     border-left: 2px solid green;

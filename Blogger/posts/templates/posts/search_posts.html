@@ -1,0 +1,59 @@
+{% extends 'main/base.html'%}
+{%load static%}
+
+{% block title %}<title>Blog | Search</title>{% endblock%}
+{%block head%}
+
+{%endblock%}
+{% block content %} 
+    
+   
+    <h1 class="rochester-regular blog-head">Search Results ({{posts.count}})</h1>
+    {%if posts %}
+    <h5 class="text-results">results for: "{{request.GET.search}}"</h5>
+    <div class="d-flex justify-content-end">
+        
+        <form method="get" action="{% url 'posts:search_posts_view'%}" >
+            <div class="filter-orderby-container">
+                <input type="search" class="form-control-input" placeholder="Search" value="{{request.GET.search}}" name="search" required minlength="3"/>
+                <select name="order_by" class="form-select-input">
+                    <option value="">Order By</option>
+                    <option value="published_at" {%if request.GET.order_by == 'published_at' %} selected {%endif%}>Published Date</option>
+                </select>
+                <input type="submit" class="btn-btn-success" value="apply"/>
+            </div>
+        </form>
+    </div>
+    {%else%}
+    <div class="text-warning-container">
+      <p class=" text-results text-warning">No results found for your search "{{request.GET.search}}"</p>
+    </div>
+    {%endif%}
+
+    <div class="blogs-container">
+       
+    <div class="display-blogs">
+
+        {%for post in posts%}
+        <div class="card">
+            <img src="{{post.poster.url}}" />
+            <div class="card-body">
+                <h1 class="rochester-regular">{{post.title}}</h1>
+                <p>{{post.content|truncatechars:100}}</p>
+                <div class="card-footer">
+                    <p > date: {{post.published_at}}</p>
+                    <a href="{% url 'posts:post_detail_view' post.id %}" class="rochester-regular">Read</a>
+                </div>   
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+</div>
+
+
+</div>
+    {% endblock%}
+    {%block script%}
+   
+    {%endblock%}

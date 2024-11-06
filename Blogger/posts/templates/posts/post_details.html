@@ -3,17 +3,18 @@
 {% block head %}
  <link href="{%static 'css/posts.css'%}" rel="stylesheet"/>
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 {% endblock%}
 {% block title %}<title>Blog | Details</title>{% endblock%}
 {% block content %} 
     
-    <div class="col d-flex flex-column justify-content-center">
+    <div class="col d-flex flex-column justify-content-center ">
       <h1 class="mt-5 mb-4 rochester-regular ">{{post.title}}</h1>
       <div class="postimg-container">
         <img src="{{post.poster.url}}" />
       </div>
       
-        <div class="d-flex justify-content-between mt-3">
+        <div class="d-flex justify-content-start mt-3 post-info-content-container">
           <div class="col-3 d-flex flex-column pt-2 postinfo-container justify-content-between justify-items-center">
             
             <div>
@@ -24,7 +25,7 @@
                 <i class="fa-solid fa-circle" style="color: red;"></i> Post Status: Not Published
               {% endif %}
             </h6>
-            <h6 class="d-flex justify-content-start align-items-center"><span class="material-symbols-outlined">category</span> Post Category: {{post.category}}</h6>
+            <h6 class="d-flex justify-content-start align-items-center"><span class="material-symbols-outlined">category</span> Post Category: {{post.get_category_display}}</h6>
             <h6 class="d-flex justify-content-start align-items-center"><span class="material-symbols-outlined">today</span> Published At: {{post.published_at}}</h6>
             </div>
 
@@ -65,7 +66,8 @@
   </div>
   
     {% endblock%}
-    {%block script%} 
+
+    {%block script%}
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

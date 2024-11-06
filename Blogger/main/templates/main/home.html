@@ -2,6 +2,9 @@
 {%load static%}
 
 {% block title %}<title>Blog | Home</title>{% endblock%}
+{% block head %}
+
+{% endblock%}
 {% block content %} 
     <div class="blog-intro">
         <h1 class="rochester-regular">The Art Of Self Care</h1>
@@ -9,7 +12,7 @@
     </div>
     <div class="choices-bar">
         <a href="{%url 'posts:add_post_view'%}" class="rochester-regular">Add Post</a>
-        <a href="" class="rochester-regular">Archives</a>
+        <a href="{%url 'posts:all_posts_view'%}" class="rochester-regular">All Posts</a>
         <a href="" class="rochester-regular">Relife</a>
     </div>
     <div class="welcoming-area">
@@ -20,9 +23,10 @@
         </section>
     </div>
 
-    <h1 class="rochester-regular blog-head">Blogs</h1>
+    <h1 class="rochester-regular blog-head">Recent Blogs</h1>
 
     <div class="blogs-container">
+       
     <div class="display-blogs">
 
         {%for post in posts%}
@@ -38,7 +42,14 @@
             </div>
         </div>
         {%endfor%}
-
     </div>
+
+</div>
+
+<div class="allposts-link-container">
+    <a href="{%url 'posts:all_posts_view'%}"  class="rochester-regular allposts-link">All Posts 
+        <span></span><span class="material-symbols-outlined">keyboard_double_arrow_right</span></a>
 </div>
     {% endblock%}
+
+    

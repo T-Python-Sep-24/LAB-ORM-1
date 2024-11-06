@@ -6,7 +6,7 @@ from posts.models import Post
 def home_page_view(request:HttpRequest):
 
     #get all posts
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by("-published_at")[0:4]
 
     return render(request,'main/home.html',{"posts":posts})
 
