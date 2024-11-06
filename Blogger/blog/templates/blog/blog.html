@@ -12,16 +12,18 @@
         <form action="{% url 'blog:new_post_view' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <input type="text" placeholder="enter title" name="title" required>
-            <select name="category" >
+            <select name="category">
                 {% for val,label in category %}
                     <option value="{{val}}">{{label}}</option>
                 {% endfor %}
             </select>
             <textarea name="content" placeholder="content" required></textarea>
-            <input type="file" name="image" class="file" required >
-            <input type="submit" value="send post" class="btn">
+            <input type="file" name="image" class="file" required  accept="image/*">
+            <input type="submit" value="send post" class="btn btn-primary ">
         </form>
     </div>
+    <hr>
+   
 </div>
 
 

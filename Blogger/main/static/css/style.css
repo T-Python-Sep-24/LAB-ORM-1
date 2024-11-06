@@ -9,7 +9,7 @@ body{
 }
 
 
-.container{
+.ja{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -19,7 +19,7 @@ body{
     
 }
 
-.container header{
+.ja header{
     display: flex;
     flex-direction: row;
     gap: 2.5rem;
@@ -56,7 +56,11 @@ header .icons {
     flex-direction: row;
     align-items: center;
 }
-.container header .icons .sign{
+header .icons input{
+    width: 250px;
+    border-radius: 2rem;
+}
+.ja header .icons .sign{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -155,11 +159,11 @@ form textarea{
     height: 146px;
 }
 
-form .btn{
+/* form .btn{
     color: black;
     font-family: 'Courier New', Courier, monospace;
     background-color: orange;
-}
+} */
 
 .content{
 
@@ -171,6 +175,9 @@ form .btn{
     
 }
 .content .context{
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
     width: 40%;
     overflow-wrap:break-word;
 }
